@@ -1,0 +1,17 @@
+<%= form_for @category, html: {multipart: true }, url: yield(:url_action), remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <div class="form-group">
+    <%= f.label :type_post %>
+    <%= f.select :type_post, options_for_select(typeposts), {}, { :class => "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.file_field :image, accept: t(".accetp_file") %>
+  </div>
+
+  <%= f.submit yield(:button_title), class: "btn btn-primary" %>
+<% end %>
