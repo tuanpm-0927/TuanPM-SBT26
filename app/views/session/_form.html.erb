@@ -1,4 +1,5 @@
 <%= form_for(:session, url: login_path) do |f| %>
+<<<<<<< HEAD
   <%= f.label t(".email") %>
   <%= f.email_field :email, class: "form-control", required: true %>
 
@@ -12,3 +13,19 @@
   
   <%= f.submit t(".login"), class: "btn btn-primary" %>
 <% end %>
+=======
+  <%= f.label :email %>
+  <%= f.email_field :email, class: "form-control", required: true %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "form-control", required: true %>
+
+  <%= f.label :remember_me, class: "checkbox inline" do %>
+  <%= f.check_box :remember_me, class: "" %>
+  <span><%= t(".remember_title") %></span>
+  <% end %>
+
+  <%= f.submit t(".login"), class: "btn btn-primary" %>
+<% end %>
+
+>>>>>>> hihi
