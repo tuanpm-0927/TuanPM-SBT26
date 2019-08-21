@@ -25,9 +25,28 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+<<<<<<< HEAD
 /config/database.yml
+/public/uploads
+=======
+<<<<<<< HEAD
+/config/database.yml
+=======
+>>>>>>> init-model-relationship
+>>>>>>> e48b803... update
 
 ## Environment normalization:
 /.bundle
 /vendor/bundle
 /public/uploads
+<<<<<<< HEAD
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+/config/application.yml
+/config/database.yml
+
+# Ignore node_modules
+node_modules/
+=======
+>>>>>>> e48b803... update

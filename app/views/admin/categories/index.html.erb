@@ -1,0 +1,24 @@
+<% provide :title, t(".category_title") %>
+<h1><%= t(".category_title") %></h1>
+<%= link_to "Create", new_admin_category_path, {:class => "btn btn-primary",
+ "data-toggle" => "modal", "data-target" => "#myModal", :remote => true } %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="category_body">
+    <%= render @categories %>
+  </tbody>
+</table>
+<div id="paginate_category">
+  <%= will_paginate %>
+</div>
+  
+<%= render "shared/modal" %>
+  

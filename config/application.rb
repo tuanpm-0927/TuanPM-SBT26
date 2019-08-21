@@ -11,5 +11,9 @@ Bundler.require(*Rails.groups)
 module TuanPMSbt26
   class Application < Rails::Application
     config.load_defaults 5.2
+<<<<<<< HEAD
+=======
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+>>>>>>> e48b803... update
   end
 end
