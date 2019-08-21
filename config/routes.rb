@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get "/notfound", to: "static_pages#notfound"
 
   resources :users, except: %i[new]
+
+  namespace :admin do
+    resources :categories
+  end
 end
