@@ -1,2 +1,54 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+$gray-medium-light: #eaeaea;
+$color-medium-red: #bbb;
+$red-medium: #fc3400;
+
+#logo{
+  color: white;
+  font-size: x-large;
+}
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+    color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+} 
+
+#container_layout{
+  margin-top: 50px;
+}
+
+.categories {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.post_title{
+  color: $red-medium;
+}
