@@ -26,8 +26,17 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/database.yml
+/public/uploads
 
 ## Environment normalization:
 /.bundle
 /vendor/bundle
 /public/uploads
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+/config/application.yml
+/config/database.yml
+
+# Ignore node_modules
+node_modules/
