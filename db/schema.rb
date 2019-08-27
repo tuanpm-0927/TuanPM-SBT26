@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_062011) do
+ActiveRecord::Schema.define(version: 2019_08_28_034306) do
 
   create_table "bankings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "account_number"
@@ -22,18 +22,18 @@ ActiveRecord::Schema.define(version: 2019_08_26_062011) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tourdetail_id"
-    t.integer "informationbooktour_id"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
-    t.integer "type_post"
+    t.string "type_post", limit: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
+  create_table "commentposts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_062011) do
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "userbooktour_id"
+    t.integer "booking_id"
     t.integer "status"
     t.integer "method_payment"
     t.decimal "amount", precision: 10
@@ -80,7 +80,14 @@ ActiveRecord::Schema.define(version: 2019_08_26_062011) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "tourdetails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tour_id"
+    t.date "day_start"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tourratings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "tour_id"
     t.integer "user_id"
     t.string "rating_number"
@@ -88,27 +95,31 @@ ActiveRecord::Schema.define(version: 2019_08_26_062011) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tourdetails", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "tour_id"
-    t.date "day_start"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tours", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.date "day_start"
     t.string "address_source"
     t.string "address_distance"
     t.decimal "price", precision: 10
-    t.decimal "discount", precision: 10
+    t.float "discount", default: 0.0
     t.decimal "price_discount", precision: 10
-    t.integer "total_day"
+    t.integer "total_day", default: 0
     t.integer "total_member_max"
-    t.integer "total_member_current"
-    t.decimal "rating_average", precision: 10
+    t.integer "total_member_current", default: 0
+    t.integer "rating_average", default: 0
     t.string "images"
     t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "start_days"
+  end
+
+  create_table "userbooktours", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tour_id"
+    t.integer "informationbooktour_id"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,9 +132,10 @@ ActiveRecord::Schema.define(version: 2019_08_26_062011) do
     t.string "phonenumber"
     t.string "address"
     t.string "remember_digest"
-    t.integer "admin"
+    t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.string "password_confirmation"
   end
 

@@ -1,5 +1,5 @@
 # Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
+# and are automatically loaded by Rails. If you want to use locales otherUL32gPSfHY
 # than English, add the necessary files in this directory.
 #
 # To use the locales, use `I18n.t`:
@@ -30,8 +30,73 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  title_contact: "Contact"
+  title_about: "About"
   hello: "Hello world"
+  title_notfound: "Notfound"
+  shared:
+    modal:
+      close: "Close"
   layouts:
     application:
       title: "TuanPMSbt26"
-
+      title_page: "Tours"
+    header:
+      search: "Search"
+      value: ""
+      nameapp: "Travel App"
+      signup: "Signup"
+  users:
+    form:
+      signup: "SignUp"
+    new:
+      signup_title: "SignUp"
+      signup: "SignUp"
+    create:
+      signup_success: "SignUp Success!"
+  session:
+    form:
+      login: "Login"
+    new:
+      login_title: "Login"
+      login: "Login" 
+    create:
+      login_failed: "Invail Email Or Password!" 
+      login_success: "Login Success!"
+  static_pages:
+    home:
+      title_home: "Home"
+  admin:
+    categories:
+      destroy:
+        delete_success: "Delete success!"
+      update:
+        category_update_success: "Update Success!"
+      index:
+        category_title: "Categories"
+      new: 
+        create: "Create"
+        create_category: "Create Category"
+      edit:
+        update: "Update"
+        edit_category: "Edit category"
+    tours:
+      new:
+        create: "Create"
+        price_discount: "Price Discount"
+      edit:
+        edit: "Edit"
+        edit_tour: "Edit tour"
+      index: 
+        title: "Title"
+        category_name: "Category"
+        address_source: "Address Source"
+        price: "Price"
+        price_discount: "Price Discount"
+        total_day: "Total Day"
+        total_member_max: "Total member max"
+        total_member_current: "Total member current"
+        rating_average: "Rating"
+        action: "Action"
+        tour_title: "Tours"
+        
