@@ -1,5 +1,5 @@
 # Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
+# and are automatically loaded by Rails. If you want to use locales otherUL32gPSfHY
 # than English, add the necessary files in this directory.
 #
 # To use the locales, use `I18n.t`:
@@ -31,7 +31,50 @@
 
 en:
   hello: "Hello world"
+  title_notfound: "Notfound"
+  session:
+    form:
+      login: "Login"
+      remember_title: "Remember me"
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember Me"
+    new:
+      login_title: "Login"
+      login: "Login"
+    create:
+      login_success: "Login Success"
   layouts:
     application:
-      title: "TuanPMSbt26"
-
+      title_page: "TuanPMSbt26"
+    footer:
+      about: "About"
+      contact: "Contact"
+    header:
+      nameapp: "Travel App"
+      login: "Login"
+      search: "Search"
+      value: ""
+      logout: "Logout"
+  static_pages:
+    home:
+      title_home: "Home"
+    contact:  
+      title_contact: "Contact"
+      contact_us: "Contact for me"
+    about:
+      title_about: "About"
+      about_us: "About for us"
+  users:
+    new:
+      signup_title: "Signup"
+      signup: "Signup"
+    form:
+      signup: "Signup"
+      fullname: "Fullname"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      birthday: "BirthDay"
+    create:
+      signup_success: "Signup Success!"
