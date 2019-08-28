@@ -32,6 +32,18 @@
 en:
   hello: "Hello world"
   title_notfound: "Notfound"
+  session:
+    form:
+      login: "Login"
+      remember_title: "Remember me"
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember Me"
+    new:
+      login_title: "Login"
+      login: "Login"
+    create:
+      login_success: "Login Success"
   layouts:
     application:
       title_page: "TuanPMSbt26"
@@ -40,6 +52,10 @@ en:
       contact: "Contact"
     header:
       nameapp: "Travel App"
+      login: "Login"
+      search: "Search"
+      value: ""
+      logout: "Logout"
   static_pages:
     home:
       title_home: "Home"
@@ -49,3 +65,16 @@ en:
     about:
       title_about: "About"
       about_us: "About for us"
+  users:
+    new:
+      signup_title: "Signup"
+      signup: "Signup"
+    form:
+      signup: "Signup"
+      fullname: "Fullname"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      birthday: "BirthDay"
+    create:
+      signup_success: "Signup Success!"

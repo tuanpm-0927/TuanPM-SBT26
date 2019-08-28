@@ -6,6 +6,7 @@ ruby "2.5.1"
 
 gem "rails", "~> 5.2.3"
 gem "bootstrap-sass", "3.3.7"
+gem "bcrypt"
 gem "jquery-rails"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "puma", "~> 3.11"
@@ -14,8 +15,8 @@ gem "uglifier", ">= 1.3.0"
 gem "rubocop", "~> 0.54.0", require: false
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
+gem "config"
 gem "jbuilder", "~> 2.5"
-
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
