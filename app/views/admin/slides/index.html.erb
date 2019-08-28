@@ -1,0 +1,21 @@
+<% provide :title, t(".slide_title") %>
+<h1><%= t(".slide_title") %></h1>
+<%= link_to t(".create"), new_admin_slide_path, { class: "btn btn-primary",
+  "data-toggle" => "modal", "data-target" => "#myModal", remote: true } %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t(".image") %></th>
+      <th><%= t(".name") %></th>
+      <th><%= t(".action") %></th>
+    </tr>
+  </thead>
+  <tbody id="slide_body">
+    <%= render @slides %>
+  </tbody>
+</table>
+<div id="paginate_slide">
+  <%= will_paginate %>
+</div>
+  
+<%= render "shared/modal" %>

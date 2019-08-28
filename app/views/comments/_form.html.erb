@@ -1,0 +1,7 @@
+<%= form_for(:comment, url: comments_path, remote: true) do |f| %>
+  <%= f.label t(".content") %>
+  <%= f.text_area :content, class: "form-control", required: true, rows: 3 %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.submit t(".comment"), class: "btn btn-info pull-right" %>
+<% end %>
