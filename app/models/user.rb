@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  enum admin: [:admin, :user]
   attr_accessor :remember_token
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  before_save :downcase_email
+  enum admin: {admin: 0, user: 1}
   has_many :tours, through: :bookings
   has_many :posts
-  validates :fullname, presence: true, length: { maximum: Settings.validates.users.name_maximum }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, length: { minimum: Settings.validates.users.password_minium },
-                       allow_nil: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  before_save :downcase_email
+  has_many :posts
+  validates :fullname, presence: true, length: { maximum: Settings.length_max_name }
+  validates :email, presence: true,uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
+  validates :password, presence: true, length: { minimum: Settings.length_min_pass },
+   allow_nil: true 
   validates :birthday, presence: true
 
   has_secure_password
@@ -34,7 +35,6 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-
     # Returns the hash digest of the given string.
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

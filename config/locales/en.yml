@@ -34,6 +34,18 @@ en:
   title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
+  session:
+    form:
+      login: "Login"
+      remember_title: "Remember me"
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember Me"
+    new:
+      login_title: "Login"
+      login: "Login"
+    create:
+      login_success: "Login Success"
   layouts:
     application:
       title: "TuanPMSbt26"
