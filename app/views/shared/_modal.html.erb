@@ -3,13 +3,13 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <%= link_to t(".close"), "#", "class" => "close", "data-dismiss" => "modal"  %>
       </div>
       <div id="body_modal" class="modal-body">
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to t(".close"), "#", "class" => "btn btn-default", "data-dismiss" => "modal" %>
       </div>
     </div>
   </div>

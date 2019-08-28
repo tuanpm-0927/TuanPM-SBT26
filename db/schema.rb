@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_012149) do
+ActiveRecord::Schema.define(version: 2019_08_28_034306) do
 
   create_table "bankings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "account_number"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
   end
 
   create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "userbooktour_id"
+    t.integer "booking_id"
     t.integer "status"
     t.integer "method_payment"
     t.decimal "amount", precision: 10
@@ -102,14 +102,24 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.string "address_source"
     t.string "address_distance"
     t.decimal "price", precision: 10
-    t.decimal "discount", precision: 10
+    t.float "discount", default: 0.0
     t.decimal "price_discount", precision: 10
-    t.integer "total_day"
+    t.integer "total_day", default: 0
     t.integer "total_member_max"
-    t.integer "total_member_current"
-    t.decimal "rating_average", precision: 10
+    t.integer "total_member_current", default: 0
+    t.integer "rating_average", default: 0
     t.string "images"
     t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "start_days"
+  end
+
+  create_table "userbooktours", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tour_id"
+    t.integer "informationbooktour_id"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

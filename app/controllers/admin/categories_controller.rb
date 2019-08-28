@@ -38,7 +38,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @check_update = @category.update_attributes(category_params)
-      flash[:success] = t '.category_update_success'
+      flash[:success] = t ".category_update_success"
       respond_to do |format|
         format.js
       end
@@ -51,7 +51,7 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      flash[:success] = t '.delete_success'
+      flash[:success] = t ".delete_success"
       redirect_to admin_categories_path
     end
   end
@@ -61,7 +61,7 @@ class Admin::CategoriesController < ApplicationController
   def load_category
     @category = Category.find_by(id: params[:id])
     unless @category
-      flash.now[:danger] = t '.category_notfound'
+      flash.now[:danger] = t ".category_notfound"
       redirect_to notfound_path
     end
   end
