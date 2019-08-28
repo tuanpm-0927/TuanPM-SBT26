@@ -30,22 +30,93 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  title_contact: "Contact"
+  title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
+  comments:
+    form:
+      content: "Content"
+      comment: "Comment"
+  session:
+    form:
+      login: "Login"
+      remember_title: "Remember me"
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember Me"
+    new:
+      login_title: "Login"
+      login: "Login"
+    create:
+      login_success: "Login Success"
   layouts:
     application:
-      title_page: "TuanPMSbt26"
-    footer:
-      about: "About"
-      contact: "Contact"
+      title: "TuanPMSbt26"
     header:
+      search: "Search"
+      value: ""
       nameapp: "Travel App"
+      signup: "Signup"
+  users:
+    form:
+      signup: "SignUp"
+    new:
+      signup_title: "SignUp"
+      signup: "SignUp"
+    create:
+      signup_success: "SignUp Success!"
+  session:
+    form:
+      login: "Login"
+    new:
+      login_title: "Login"
+      login: "Login" 
+    create:
+      login_failed: "Invail Email Or Password!" 
+      login_success: "Login Success!"
   static_pages:
     home:
       title_home: "Home"
-    contact:  
-      title_contact: "Contact"
-      contact_us: "Contact for me"
-    about:
-      title_about: "About"
-      about_us: "About for us"
+  admin:
+    categories:
+      destroy:
+        delete_success: "Delete success!"
+      update:
+        category_update_success: "Update Success!"
+      index:
+        category_title: "Categories"
+      new: 
+        create: "Create"
+        create_category: "Create Category"
+      edit:
+        update: "Update"
+        edit_category: "Edit category"
+    tours:
+      new:
+        create: "Create"
+        price_discount: "Price Discount"
+      edit:
+        edit: "Edit"
+        edit_tour: "Edit tour"
+      index: 
+        title: "Title"
+        category_name: "Category"
+        address_source: "Address Source"
+        price: "Price"
+        price_discount: "Price Discount"
+        total_day: "Total Day"
+        total_member_max: "Total member max"
+        total_member_current: "Total member current"
+        rating_average: "Rating"
+        action: "Action"
+        tour_title: "Tours"
+    slides:
+      new:
+        create: "Create"
+        create_slide: "Create Slide"
+      edit:
+        update: "Update"
+  shared:
+    modal:
+      close: "Close"

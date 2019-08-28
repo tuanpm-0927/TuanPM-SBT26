@@ -1,0 +1,3 @@
+var isSuccess = '<%= @check_update %>'
+if(isSuccess == 'true') { alert('Update Success'); location.reload() } 
+$('#myModal #body_modal').html('<%= j render "edit" %>')

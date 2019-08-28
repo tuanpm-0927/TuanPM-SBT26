@@ -1,0 +1,7 @@
+var isSuccess = '<%= @category.valid? %>'
+if (isSuccess == 'true') {
+  alert('Create Success!')
+  $('#category_body').html('<%= j render @categories %>')
+  $('#paginate_category').html('<%= j will_paginate %>')
+} 
+else $('#myModal #body_modal').html('<%= j render "new" %>')
