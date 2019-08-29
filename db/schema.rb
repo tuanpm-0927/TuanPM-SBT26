@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_012149) do
+ActiveRecord::Schema.define(version: 2019_08_29_033341) do
 
-  create_table "bankings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "bankings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "account_number"
     t.string "username"
     t.string "password"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tourdetail_id"
     t.integer "informationbooktour_id"
@@ -31,14 +31,23 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "type_post"
+    t.string "type_post", limit: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "informationbooktours", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "informationbooktours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
     t.string "phonenumber"
     t.string "address"
@@ -47,14 +56,14 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "paymentbankings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "paymentbankings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status"
     t.integer "payment_id"
     t.integer "banking_id"
@@ -62,8 +71,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "userbooktour_id"
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "booking_id"
     t.integer "status"
     t.integer "method_payment"
     t.decimal "amount", precision: 10
@@ -71,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.integer "user_id"
@@ -80,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tour_id"
     t.integer "user_id"
     t.string "rating_number"
@@ -88,14 +97,14 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tourdetails", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "tourdetails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tour_id"
     t.date "day_start"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tours", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "tours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.string "address_source"
@@ -111,9 +120,10 @@ ActiveRecord::Schema.define(version: 2019_08_27_012149) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_booking_tour", default: 0
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "fullname"
     t.string "email"
     t.date "birthday"
