@@ -11,4 +11,12 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+  
+  def load_address
+    address = Array.new
+    File.open("address.txt", "r") do |file|
+      file.each{ |line| address << line.split("\n") }
+    end
+    return address
+  end
 end

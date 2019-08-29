@@ -35,7 +35,6 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-    
     # Returns the hash digest of the given string.
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -44,7 +43,8 @@ class User < ApplicationRecord
     end
   end
 
-  private 
+  private
+
   def downcase_email
     email.downcase!
   end

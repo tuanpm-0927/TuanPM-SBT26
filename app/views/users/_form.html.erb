@@ -1,6 +1,5 @@
 <%= form_for @user do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-<<<<<<< HEAD
   <%= f.label t(".fullname") %>
   <%= f.text_field :fullname, class: "form-control", required: true%>
 
@@ -14,22 +13,6 @@
   <%= f.password_field :password_confirmation, class: "form-control", required: true%>
 
   <%= f.label t(".birthday") %>
-=======
-
-  <%= f.label :fullname %>
-  <%= f.text_field :fullname, class: "form-control", required: true%>
-
-  <%= f.label :email %>
-  <%= f.text_field :email, class: "form-control", required: true %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control", required: true %>
-	
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: "form-control", required: true%>
-
-  <%= f.label :birthday %>
->>>>>>> hihi
   <%= f.date_field :birthday, class: "form-control", required: true %>
 
   <%= f.submit t(".signup"), class: "btn btn-primary" %>

@@ -49,6 +49,13 @@ en:
   layouts:
     application:
       title: "TuanPMSbt26"
+  shared:
+    modal:
+      close: "Close"
+  layouts:
+    application:
+      title: "TuanPMSbt26"
+      title_page: "Tours"
     header:
       search: "Search"
       value: ""
@@ -88,3 +95,22 @@ en:
       edit:
         update: "Update"
         edit_category: "Edit category"
+    tours:
+      new:
+        create: "Create"
+        price_discount: "Price Discount"
+      edit:
+        edit: "Edit"
+        edit_tour: "Edit tour"
+      index: 
+        title: "Title"
+        category_name: "Category"
+        address_source: "Address Source"
+        price: "Price"
+        price_discount: "Price Discount"
+        total_day: "Total Day"
+        total_member_max: "Total member max"
+        total_member_current: "Total member current"
+        rating_average: "Rating"
+        action: "Action"
+        tour_title: "Tours"
