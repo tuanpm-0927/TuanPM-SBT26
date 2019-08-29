@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      flash[:success] = t(".signup_success")
+      flash[:success] = t ".signup_success"
       redirect_to root_path
     else
       render :new
@@ -25,10 +25,10 @@ class UsersController < ApplicationController
 
   def destroy 
     if @user.destroy
-      flash[:success] = t(".delete_success")
+      flash[:success] = t ".delete_success"
       redirect_to users_path
     else
-      flash[:danger] = t(".delete_error")
+      flash[:danger] = t ".delete_error"
       redirect_to not_found
     end
   end

@@ -1,0 +1,19 @@
+<% provide :title, t(".post_title") %>
+<h1><%= t(".post_title") %></h1>
+<%= link_to t(".create"), new_post_path, { :class => "btn btn-primary" } %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t(".title") %></th>
+      <th><%= t(".user_name") %></th>
+      <th><%= t(".category") %></th>
+      <th><%= t(".action") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @posts %>
+  </tbody>
+</table>
+
+<%= will_paginate %>
