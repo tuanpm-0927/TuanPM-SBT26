@@ -1,0 +1,5 @@
+var isSucess = '<%= @comment.valid? %>';
+if( isSucess == 'true' ){
+  $('.media-list').html('<%= j render @comments %>');
+  $('#comment_content').val('');
+}

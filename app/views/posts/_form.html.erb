@@ -1,0 +1,14 @@
+<%= form_for @post, html: {multipart: true }, url: yield(:url_action) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".title") %>
+  <%= f.text_field :title, class: "form-control", required: true %>
+
+  <%= f.label t(".content") %>
+  <%= f.text_area :content, class: "ckeditor", required: true %> 
+
+  <%= f.label t(".category") %>
+  <%= f.select :category_id, options_for_select(load_categories.collect{ |u| [u.name, u.id] }, @post.category_id), {}, { :class => "form-control", :required => true } %>
+
+  <%= f.submit yield(:button_title), class: "form-control btn btn-primary" %>
+<% end %>
