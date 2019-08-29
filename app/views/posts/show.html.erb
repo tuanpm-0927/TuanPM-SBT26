@@ -1,0 +1,30 @@
+<h3 class="post-title text-center"><%= @post.title %></h3>
+<br>
+<p class="text-right"><%= @post.created_at %></p>
+<br>
+<p><%= @post.content.html_safe %></p>
+
+<div class="row bootstrap snippets">
+  <div class="col-md-6 col-md-offset-2 col-sm-12">
+    <div class="comment-wrapper">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= t(".comment_panel") %>
+        </div>
+        <div class="panel-body">
+          <%= form_for @comment, html: {multipart: true }, url: yield(:url_action) do |f| %>
+
+            <%= f.label t(".content") %>
+            <%= f.text_area :content, class: "form-control", required: true, rows: 3 %>
+          
+            <%= f.submit t(".commment"), class: "btn btn-info pull-right" %>
+          <% end %>
+          <hr>
+          <ul class="media-list">
+            <%= render @comments %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :posts
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save :downcase_email
-  has_many :posts
   validates :fullname, presence: true, length: { maximum: Settings.length_max_name }
   validates :email, presence: true,uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: Settings.length_min_pass },
@@ -24,7 +23,7 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false unless digest
-      BCrypt::Password.new(digest).is_password?(token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget

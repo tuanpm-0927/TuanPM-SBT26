@@ -1,0 +1,11 @@
+<%= form_for @category do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".name") %>
+  <%= f.text_field :name, class: "form-control", required: true%>
+
+  <%= f.label t(".image") %>
+  <%= f.file_field :image, accept: t(".accept_file") %>
+	
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to post.title, post %></td>
+  <td><%= post.user.fullname %></td>
+  <td><%= post.category.name %></td>
+  <td class="row">
+    <%= link_to t(".delete"), post_path(post), method: :delete, 
+          data: { confirm: t(".confirm") }, class: "btn btn-primary" %>
+    <%= link_to t(".edit"), edit_post_path(post),
+          {:class => "btn btn-primary" } %>
+  </td>
+</tr>
