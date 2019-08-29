@@ -2,6 +2,6 @@
 
 class Tour < ApplicationRecord
   belongs_to :category
-  has_many :users, through: :bookings
   has_many :ratings
+  has_many :tourdetails, dependent: :destroy
 end
