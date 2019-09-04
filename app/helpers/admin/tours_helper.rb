@@ -2,7 +2,7 @@
 
 module Admin::ToursHelper
   def load_categories
-    Category.admin
+    Category.admin.collect{ |u| [u.name, u.id] }
   end
 
   def check_address_present(tour)

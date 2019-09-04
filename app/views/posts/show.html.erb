@@ -1,0 +1,30 @@
+<h3 class="post-title text-center"><%= @post.title %></h3>
+<br>
+<p class="text-right"><%= @post.created_at %></p>
+<br>
+<p><%= @post.content.html_safe %></p>
+
+<div class="row bootstrap snippets">
+  <div class="col-md-6 col-md-offset-2 col-sm-12">
+    <div class="comment-wrapper">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <%= t(".comment_panel") %>
+        </div>
+        <div class="panel-body">
+          <% if current_user %>
+            <%= render "comments/form" %>
+          <% end %>
+          <hr>
+          <ul class="media-list">
+            <% if check_empty(@comments) %>
+              <%= render @comments %>
+            <% else %>
+              <%= t(".empty") %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,5 +15,16 @@ module ApplicationHelper
   def check_empty(values)
     return false if values.empty?
     true
+  
+  def load_address
+    address = Array.new
+    File.open("address.txt", "r") do |file|
+      file.each{ |line| address << line.split("\n") }
+    end
+    return address
+  end
+
+  def check_currentuser(user_id)
+    return true if current_user&.id == user_id
   end
 end
