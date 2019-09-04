@@ -4,4 +4,5 @@ class Tour < ApplicationRecord
   belongs_to :category
   has_many :ratings
   has_many :tourdetails, dependent: :destroy
+  scope :orderby, -> { order(created_at: :desc) }
 end

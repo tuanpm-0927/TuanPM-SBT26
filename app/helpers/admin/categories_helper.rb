@@ -2,7 +2,7 @@
 
 module Admin::CategoriesHelper
   def typeposts
-    Category.typeposts.keys.to_a
+    Settings.type_post
   end
 
   def show_image(category)

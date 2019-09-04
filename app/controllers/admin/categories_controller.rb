@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
   before_action :load_categories, only: [:create]
 
   def index
-    @categories = Category.orderby.paginate(page: params[:page], per_page: Settings.def_perpage)
+    @categories = Category.orderby.paginate page: params[:page], per_page: Settings.def_perpage
   end
 
   def new

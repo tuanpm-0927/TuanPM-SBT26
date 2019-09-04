@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :users, except: %i[new]
 
   namespace :admin do
-    resources :categories
+    resources :categories, :tours
   end
 end
