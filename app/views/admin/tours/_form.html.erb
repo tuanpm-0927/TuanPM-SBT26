@@ -1,0 +1,33 @@
+<%= form_for @tour, html: {multipart: true }, url: yield(:url_action) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".title") %>
+  <%= f.text_field :title, class: "form-control", required: true %>
+  
+  <%= f.label t(".price") %>
+  <%= f.number_field :price, class: "form-control", required: true %>
+
+  <%= f.label t(".discount") %>
+  <%= f.number_field :discount, value: Settings.val_price, step: Settings.step_price, class: "form-control", required: true %>
+
+  <%= f.label t(".total_day") %>
+  <%= f.number_field :total_day, step: Settings.val_day_default, class: "form-control", required: true %>
+  
+  <%= f.label t(".start_days") %>
+  <%= select_tag :select_start_day, options_for_select(1..31), :class => "form-control" %>
+  <%= f.text_field :start_days, :class => "form-control", readonly: true %>
+
+  <%= f.label t(".total_member_max") %>
+  <%= f.text_field :total_member_max, value: Settings.val_default, class: "form-control", required: true %>
+
+  <%= f.label t(".images") %>
+  <%= f.file_field :images, class: "form-control" %>
+
+  <%= f.label t(".content") %>
+  <%= f.text_area :content, class: "ckeditor" %> 
+
+  <%= f.label t(".category") %>
+  <%= f.select :category_id, options_for_select(load_categories.collect{ |u| [u.name, u.id] }, @tour.category_id), {}, { class: "form-control", required: true } %>
+
+  <%= f.submit yield(:button_title), class: "form-control btn btn-primary" %>
+<% end %>
