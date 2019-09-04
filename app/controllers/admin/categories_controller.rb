@@ -42,7 +42,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    authorize @category
     if @category.tours.length > 0 and check_tour_booked?@category.tours
       flash[:danger] = t ".have_booking_tour_of_category"
     elsif @category.destroy
