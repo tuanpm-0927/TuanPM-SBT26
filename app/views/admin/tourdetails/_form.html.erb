@@ -1,0 +1,10 @@
+<%= form_for @tourdetail, url: yield(:url_action) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".day_start") %>
+  <%= f.datetime_field :day_start, class: "form-control" %>
+
+  <%= f.hidden_field :tour_id, value: @tourdetail.tour_id %>
+
+  <%= f.submit yield(:button_title), class: "form-control btn btn-primary" %>
+<% end %>

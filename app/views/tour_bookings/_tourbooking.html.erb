@@ -1,0 +1,16 @@
+<tr class="row">
+  <th>
+    <div class="col-sm-3">
+      <%= show_image_tour(tourbooking.tour) %>
+    </div>
+    <div class="col-sm-3">
+      <h3 class="color-red"><%= tourbooking.tour.title %></h3>
+      <p><%= tourbooking.tour.description %></p>
+      <%= t(".day_start") %> <%= tourbooking.day_start %>
+    </div>  
+    <div class="col-sm-3 text-center">
+      <%= link_to "View", tour_booking_path(tourbooking.tour, tour_detail_id: tourbooking.id),
+        class: "btn btn-primary" %>
+    </div>
+  </th>
+</tr>

@@ -6,7 +6,6 @@ module Admin::CategoriesHelper
   end
 
   def show_image(category)
-    default_image = Settings.def_image
-    image_tag(category.image.url.nil? ? default_image : category.image.url, alt: category.name)
+    image_tag(category.image.url.nil? ? Settings.def_image : category.image.url, alt: category.name, height: Settings.height, width: Settings.width)
   end
 end
