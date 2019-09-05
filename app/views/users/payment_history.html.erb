@@ -1,0 +1,11 @@
+<% provide :title, t(".payment_history") %>
+<h1><%= t(".payment_history") %></h1>
+
+<table class="table table-striped">
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <%= render partial: "history", locals: {booking: booking} %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @bookings %>

@@ -1,0 +1,8 @@
+<tr class="row">
+  <th>
+    <div class="col-sm-6">
+      <%= t(".payment_for_tour", tour_title: booking.tourdetail.tour.title,
+        price: booking.payment.amount, day_start: booking.tourdetail.day_start) %>
+    </div>
+  </th>
+</tr>

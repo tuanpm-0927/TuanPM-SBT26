@@ -32,6 +32,17 @@ class UsersController < ApplicationController
       redirect_to not_found
     end
   end
+
+  def booking
+    @bookings = current_user.bookings.order_by_newest.paginate page: params[:page], per_page: Settings.per_page
+    return if current_user
+    flash[:danger] = ".notfound_user"
+    redirect_to notfound_path
+  end
+
+  def payment_history
+    @bookings = current_user.bookings.paid.order_by_newest.paginate page: params[:page], per_page: Settings.per_page
+  end
   
   private
   def user_params

@@ -1,0 +1,11 @@
+<tr>
+  <td><%= show_image(slide) %></td>
+  <td><%= slide.name %></td>
+  <td class="row">
+    <%= link_to t(".delete"), admin_slide_path(slide), method: :delete, 
+      data: { confirm: t(".cofirm_delete") }, class: "btn btn-primary" %>
+    <%= link_to t(".edit"), edit_admin_slide_path(slide),
+      { class: "btn btn-primary", "data-toggle" => "modal",
+        "data-target" => "#myModal", remote: true } %>
+  </td>
+</tr>

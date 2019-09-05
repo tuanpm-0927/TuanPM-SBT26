@@ -1,0 +1,10 @@
+<% provide :title, t(".tour_booking") %>
+<h1><%= t(".tour_booking") %></h1>
+
+<table class="table table-striped">
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <%= render partial: "booking", locals: {booking: booking} %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+var isSuccess = '<%= @slide.valid? %>'
+if (isSuccess == 'true') {
+  alert('Create Success!')
+  $('#slide_body').html('<%= j render @slides %>')
+  $('#paginate_slide').html('<%= j will_paginate %>')
+} 
+else $('#myModal #body_modal').html('<%= j render "new" %>')

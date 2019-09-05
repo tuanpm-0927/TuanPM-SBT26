@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-4">
+    <%= show_image_tour(@tourdetail.tour) %>
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+      <h3 class="color-red"><%= @tourdetail.tour.title %></h3>
+      <h4 class="color-greenyellow"><%= t(".start_day") %> <%= @tourdetail.day_start %></h4>
+        <% if @tourdetail.tour.discount == 0  %>
+          <h4><%= @tourdetail.tour.price_discount %></h4>
+        <% else %>
+          <h4><del><%= @tourdetail.tour.price %></del><span><%= t(".sale") %></span></h4>
+          <h4 class="color-red"><%= @tourdetail.tour.price_discount %></h4>
+        <% end %>
+    </div>
+  </div>
+</div>
+<h3 class="text-center"><%= t(".information_booktour") %></h3>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "form_infomation" %>
+  </div>
+</div>
+  
