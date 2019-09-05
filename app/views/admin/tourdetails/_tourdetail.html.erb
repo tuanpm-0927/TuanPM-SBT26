@@ -1,0 +1,9 @@
+<tr>
+  <td><%= tourdetail.day_start %></td>
+  <td><%= tourdetail.total_booking %></td>
+  <td>
+    <%= link_to t(".edit"), edit_admin_tour_tourdetail_path(tourdetail.tour,tourdetail), class: "col-sm-6 btn btn-primary" %>
+    <%= link_to t(".delete"), admin_tour_tourdetail_path(tourdetail.tour, tourdetail), method: :delete, 
+          data: { confirm: t(".cofirm_delete") }, class: "col-sm-6 btn btn-danger" %>
+  </td>
+</tr>
