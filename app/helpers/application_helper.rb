@@ -19,4 +19,13 @@ module ApplicationHelper
     end
     return address
   end
+
+  def check_first(images,image)
+    return true if images.first == image
+  end
+
+  def show_image_tour(tour)
+    return image_tag(tour.images[0].image_link.url, height: Settings.height_minium,
+       width: Settings.width_minium) unless tour.images.empty?
+  end
 end

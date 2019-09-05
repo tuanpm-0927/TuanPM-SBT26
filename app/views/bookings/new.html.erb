@@ -1,0 +1,29 @@
+<h3 class="color-red text-center"><%= t(".information_tour") %></h3>
+
+<div class="row">
+  <div class="col-sm-3">
+    
+  </div>
+  <div class="col-sm-9">
+    <div class="row">
+      <%= @tour.title %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= t(".start_day") check_current_tour(@tour) %>
+      </div>
+      <div class="col-sm-6">
+        <%= t(".start_day_another") %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= t(".total_day") @tour.total_day%>
+      </div>
+      <div class="col-sm-6">
+        <%= t(".price") @tour.price %>
+      </div>
+    </div>
+  </div>  
+</div>

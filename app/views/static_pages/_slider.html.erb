@@ -1,0 +1,23 @@
+<div  id="myCarousel" class="carousel slide margintopbottom" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @slides.each do |slide| %>
+      <% if check_active(slide) %>
+        <div class="item active">
+          <%= show_image_slide(slide) %>
+        </div>
+      <% else %>
+        <div class="item">
+          <%= show_image_slide(slide) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "#myCarousel", class: "left carousel-control", "data-slide" => "prev" do %>
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only"><%= t(".previous") %></span>
+  <% end %>
+  <%= link_to "#myCarousel", class: "right carousel-control", "data-slide" => "next" do %>
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only"><%= t(".next") %></span>
+  <% end %>
+</div>

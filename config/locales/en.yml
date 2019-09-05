@@ -34,6 +34,7 @@ en:
   title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
+  active: "Active"
   comments:
     form:
       content: "Content"
@@ -111,3 +112,23 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+    slides:
+      form:
+        name: "name"
+        image: "image"
+      new:
+        create: "Create"
+        create_slide: "Create Slide"
+      edit:
+        update: "Update"
+  shared:
+    modal:
+      close: "Close"
+    search:
+      price: "Price"
+      name: "Name"
+      from_date: "From date"
+      to_date: "To date"
+      search: "search"
+      price_from: "From"
+      price_to: "To"
