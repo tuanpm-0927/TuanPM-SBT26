@@ -1,5 +1,5 @@
 class Admin::ToursController < ApplicationController
-  before_action :load_tour, only: [:edit, :update, :destroy]
+  before_action :load_tour, only: [:edit, :update, :destroy,:show]
 
   def index
     @tours = Tour.orderby.paginate page: params[:page], per_page: Settings.def_perpage
@@ -18,6 +18,8 @@ class Admin::ToursController < ApplicationController
     end
     
   end
+
+  def show; end
 
   def update
     if @tour.update_attributes(params_tour)
@@ -43,7 +45,7 @@ class Admin::ToursController < ApplicationController
   private
   def params_tour
     params.require(:tour).permit(:title, :address_source, :price, :discount, :price_discount,
-      :total_day, :start_days, :content, :category_id, :total_member_max)
+      :total_day, :start_days, :content, :category_id, :total_member_max, :images, :description)
   end
 
   def load_tour

@@ -1,0 +1,19 @@
+<% @tours.each do |tour| %>
+  <div class="card col-sm-4" >
+    <%= image_tag(tour.images.url, {:style => "width:250px;"}) %>
+      <div class="card-body">
+        <h4 class="card-title text-center color-red"><%= tour.title %></h4>
+        <p class="card-text">
+          <% if tour.discount < 0  %>
+            <i ><%= tour.price_discount %></i>
+          <% else %>
+            <del><%= tour.price %></del>
+            <br>
+            <span class="color-red"><%= tour.price_discount %></span>
+          <% end %>
+        </p>
+      <p class="card-text"><%= tour.description %></p>
+      <%= link_to t(".view"), admin_tour_path(tour), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

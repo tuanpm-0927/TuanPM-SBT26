@@ -12,8 +12,13 @@
 //
 //= require jquery
 //= require bootstrap
+//= require select_day
+//= require range_price
 //= require rails-ujs   
 //= require activestorage
 //= require turbolinks
+<<<<<<< HEAD
 //= require select_day
+=======
+>>>>>>> ab44459cc02999983dacc04d58c8beeb6ee49ebd
 //= require ckeditor/init

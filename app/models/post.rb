@@ -6,4 +6,7 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
   scope :orderby, -> { order(created_at: :desc) }
+
+  validates :category_id, presence: :true
+  validates :user_id, presence: :true
 end

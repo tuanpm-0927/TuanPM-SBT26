@@ -16,6 +16,8 @@ gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "mini_magick", "4.7.0"
+gem "ckeditor"
+gem "slim-rails", "3.1.1"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "pry"
 gem "puma", "~> 3.11"
@@ -24,10 +26,9 @@ gem "rails", "~> 5.2.3"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
-gem "config"
-gem "jbuilder", "~> 2.5"
-gem "bootsnap", ">= 1.1.0", require: false
 gem "cancancan"
+gem "uglifier", ">= 1.3.0"
+gem "will_paginate", "~> 3.1.7"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

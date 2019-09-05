@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
+<<<<<<< HEAD
   before_action :load_comment, only: :destroy
+=======
+  before_action :load_comment, only: [:destroy]
+>>>>>>> ab44459cc02999983dacc04d58c8beeb6ee49ebd
 
   def create
     @comment = Comment.new params_comment
@@ -32,11 +36,16 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     unless @comment
       flash[:danger] = t ".notfound_comment"
+<<<<<<< HEAD
       redirect_to notfound_path
+=======
+      return notfound_path
+>>>>>>> ab44459cc02999983dacc04d58c8beeb6ee49ebd
     end
   end
 
   def load_comments_bypost
+<<<<<<< HEAD
     post = Post.find_by(id: @comment.post_id)
     if post
       @comments = post.comments.order_new
@@ -44,5 +53,8 @@ class CommentsController < ApplicationController
       flash[:danger] = t ".notfound_comment"
       redirect_to notfound_path
     end
+=======
+    @comments = Post.find_by(id: @comment.post_id).comments.order_new
+>>>>>>> ab44459cc02999983dacc04d58c8beeb6ee49ebd
   end
 end

@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 class Admin::CategoriesController < ApplicationController
-  load_and_authorize_resource
   before_action :load_category, except: [:index, :new, :create]
   before_action :load_categories, only: [:create]
 
   def index
-    @categories = Category.orderby.paginate page: params[:page], per_page: Settings.def_perpage
+    @categories = Category.orderby.paginate(page: params[:page], per_page: Settings.def_perpage)
   end
 
   def new

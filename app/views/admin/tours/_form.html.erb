@@ -14,7 +14,7 @@
   <%= f.number_field :discount, value: Settings.val_price, step: Settings.step_price, class: "form-control", required: true %>
 
   <%= f.label t(".total_day") %>
-  <%= f.number_field :total_day, step: 1, class: "form-control", required: true %>
+  <%= f.text_field :total_day, class: "form-control", required: true %>
   
   <%= f.label t(".start_days") %>
   <%= select_tag :select_start_day, options_for_select(1..31), :class => "form-control" %>
