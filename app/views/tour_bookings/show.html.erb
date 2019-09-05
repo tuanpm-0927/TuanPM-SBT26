@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= render "shared/slider_tour" %>
+  </div>
+  <div class="col-sm-6 center_mid">
+    <div class="row text-center">
+      <h2 class="color-red"><%= @tour.title %></h2>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <%= t(".start_day") %>
+      </div>
+      <div class="col-sm-6">
+        <%= @tour_detail_current.day_start %>
+        <%= link_to t(".select_day"), tour_path(id: @tour.id), class: "btn btn-primary" %>
+        <% if current_user %>
+          <%= link_to t(".booking"), booking_path(id: @tour.id, tour_detail_id: @tour_detail_current.id), class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <%= t(".total_day") %>
+        </div>
+        <div class="col-sm-3">
+          <%= @tour.total_day %>
+        </div>
+      </div>
+  
+    <div class="row">
+      <div class="col-sm-3">
+        <%= t(".source_address") %>
+      </div>
+      <div class="col-sm-3">
+        <%= @tour.address_source %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-3">
+        <%= t(".price") %>
+      </div>
+      <div class="col-sm-3">
+        <%= @tour.price %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-3">
+        <%= t(".price_discount") %>
+        <%= t(".total_booking") %>
+      </div>
+      <div class="col-sm-3">
+        <%= @tour.price_discount %>
+        <p><span><%= @tour.total_member_current %></span>/<span class="color-red"><%= @tour.total_member_max %></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="row container-fluid">
+  <h3 class="text-center"><%= t(".tour_guide") %></h3>
+  <%= @tour.content.html_safe %>
+</div>
+  

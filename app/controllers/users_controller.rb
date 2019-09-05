@@ -32,6 +32,14 @@ class UsersController < ApplicationController
       redirect_to not_found
     end
   end
+
+  def booking
+    unless current_user
+      flash[:danger] = ".notfound_user"
+      redirect_to notfound_path
+    end
+    @bookings = current_user.bookings.paginate page: params[:page], per_page: Settings.per_page
+  end
   
   private
   def user_params

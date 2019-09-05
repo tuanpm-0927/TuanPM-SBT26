@@ -2,7 +2,7 @@
 
 module Admin::ToursHelper
   def load_categories
-    help = Category.load_categories_admin
+    Category.load_categories_admin
   end
 
   def check_address_present(tour)

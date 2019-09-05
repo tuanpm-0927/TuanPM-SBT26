@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   enum admin: {admin: 0, user: 1}
-  has_many :tours, through: :bookings
-  has_many :posts
+  has_many :bookings, dependent: :destroy
+  has_many :posts, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save :downcase_email
   validates :fullname, presence: true, length: { maximum: Settings.length_max_name }
@@ -18,6 +18,11 @@ class User < ApplicationRecord
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def check_money(money_payment)
+    return true if money > money_payment
+    false
   end
 
   def authenticated?(attribute, token)

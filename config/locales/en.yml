@@ -34,6 +34,20 @@ en:
   title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
+  active: "Active"
+  tour_bookings:
+    tourbooking:
+      day_start: "Day start:"
+    new_booking:
+      start_day: "Day start:"
+      sale: "(Sale)"
+      information_booktour: "Information booking"
+    form_infomation: 
+      fullname: "Fullname"
+      phonenumber: "Phone number"
+      address: "Address"
+      note: "Note"
+      bookingtour: "Booking"
   comments:
     form:
       content: "Content"
@@ -53,14 +67,19 @@ en:
   layouts:
     application:
       title: "TuanPMSbt26"
+      title_page: "Travel Ninh Binh"
     header:
       search: "Search"
       value: ""
       nameapp: "Travel App"
       signup: "Signup"
+      userbooking: "My Booking"
   users:
     form:
       signup: "SignUp"
+    booking:
+      cofirm_payment: "Are you sure payment for this tour?"
+      confirm_delete: "Are you sure delete this tour?"
     new:
       signup_title: "SignUp"
       signup: "SignUp"
@@ -92,6 +111,13 @@ en:
       edit:
         update: "Update"
         edit_category: "Edit category"
+    tourdetails:
+      form:
+        day_start: "Day start"
+      new:
+        create_tour_detail: "Create"
+      edit:
+        edit_tour_detail: "Edit"
     tours:
       new:
         create: "Create"
@@ -111,3 +137,23 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+    slides:
+      form:
+        name: "name"
+        image: "image"
+      new:
+        create: "Create"
+        create_slide: "Create Slide"
+      edit:
+        update: "Update"
+  shared:
+    modal:
+      close: "Close"
+    search:
+      price: "Price"
+      name: "Name"
+      from_date: "From date"
+      to_date: "To date"
+      search: "search"
+      price_from: "From"
+      price_to: "To"

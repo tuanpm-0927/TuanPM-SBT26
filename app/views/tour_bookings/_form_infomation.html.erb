@@ -1,0 +1,19 @@
+<%= form_for :booking, url: booking_path , method: :post do |f| %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :tourdetail_id, value: @tourdetail.id %>
+
+  <%= f.label t(".fullname") %>
+  <%= f.text_field :fullname, class: "form-control", required: true %>
+
+  <%= f.label t(".phonenumber") %>
+  <%= f.number_field :phonenumber, class: "form-control", required: true %>
+
+  <%= f.label t(".address") %>
+  <%= f.text_field :address, class: "form-control" %>
+
+  <%= f.label t(".note") %>
+  <%= f.text_area :note, class: "form-control", rows: Settings.row_note %>
+
+  <%= f.submit t(".bookingtour"), class: "form-control btn btn-primary" %>
+<% end %>

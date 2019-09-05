@@ -10,3 +10,15 @@ def_image: "/uploads/category/image/88/download.jpeg"
 val_price: 0
 step_price: 0.5
 type_post: ["Admin", "User"]
+category_default: 3
+admin: 0
+row_default: 10
+checkbox_true: "1"
+heigth_slide: "100"
+width_slide: "1200"
+height: "100"
+width: "150"
+height_minium: "150"
+width_minium: "250"
+row_note: 3
+minimun: 1

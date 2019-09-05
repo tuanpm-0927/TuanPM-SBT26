@@ -1,0 +1,21 @@
+<tr class="row">
+  <th>
+    <div class="col-sm-3">
+      <%= show_image_tour(booking.tourdetail.tour) %>
+    </div>
+    <div class="col-sm-3">
+      <h3 class="color-red"><%= booking.tourdetail.tour.title %></h3>
+      <p><%= t(".day_start") %> <%= booking.tourdetail.day_start %></p>
+      <p><%= t(".price") %> <%= booking.tourdetail.tour.price_discount %></p>
+    </div>  
+    <div class="col-sm-3 text-center">
+      <% unless check_paymented(booking) %>
+        <%= link_to t(".payment"), payments_path(booking_id: booking.id), data: { confirm: t(".cofirm_payment") }, method: :post, class: "btn btn-primary" %>
+        <%= link_to t(".delete"), tour_bookings_path(booking),data: { confirm: t(".confirm_delete") },
+          method: :delete, class: "btn btn-primary" %>
+      <% else %>
+        <h3 class="color-red"><%= t(".paymented") %></h3>
+      <% end %>
+    </div>
+  </th>
+</tr>

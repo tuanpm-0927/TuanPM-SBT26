@@ -1,0 +1,18 @@
+<% provide :title, t(".tourdetail_title") %>
+<h1><%= t(".tourdetail_title") %></h1>
+<%= link_to t(".create"), new_admin_tour_tourdetail_path, class: "btn btn-primary" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t(".start_day") %></th>
+      <th><%= t(".action") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tourdetails %>
+  </tbody>
+</table>
+<div>
+  <%= will_paginate %>
+</div>
+  
