@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   def load_comments_bypost
     post = Post.find_by(id: @comment.post_id)
     if post
-      @comments = post.comments.order_new
+      @comments = post.comments.order_by_newest
     else
       flash[:danger] = t ".notfound_comment"
       redirect_to notfound_path

@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require ckeditor/init
 //= require bootstrap
+//= require range_price
 //= require rails-ujs   
 //= require activestorage
-//= require turbolinks
-//= require select_day
-//= require ckeditor/init
+//= require chosen-jquery

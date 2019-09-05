@@ -34,10 +34,78 @@ en:
   title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
+  active: "Active"
+  posts:
+    index:
+      post_title: "Post"
+      create: "Write post"
+      title: "Title"
+      user_name: "User name"
+      category: "Category"
+      action: "Action"
+    form:
+      title: "Title"
+      content: "Content"
+      category: "Category"
+    new:
+      new: "New Post"
+      new_post: "Write post"
+  payments:
+    please_recharge_money: "Please recharge money"
+    create:
+      payment_success: "Payment success!"
+  tour_bookings:
+    create_booking:
+      booking_user_max: "This tour person booking maximum! Please booking tour another!"
+      booking_success: "Booking success!"
+    tourbooking:
+      day_start: "Day start:"
+    new_booking:
+      start_day: "Day start:"
+      sale: "(Sale)"
+      information_booktour: "Information booking"
+    form_infomation: 
+      fullname: "Fullname"
+      phonenumber: "Phone number"
+      address: "Address"
+      note: "Note"
+      bookingtour: "Booking"
   comments:
     form:
       content: "Content"
       comment: "Comment"
+  layouts:
+    application:
+      title: "TuanPMSbt26"
+      title_page: "Travel Ninh Binh"
+    header:
+      search: "Search"
+      value: ""
+      nameapp: "Travel App"
+      signup: "Signup"
+      userbooking: "My Booking"
+      manager_post: "Posts"
+      login: "Login"
+  users:
+    payment_history:
+      payment_history: "Payment History"
+    history:
+      payment_for_tour: "Payment for tour : %{tour_title} with price: %{price} start on %{day_start}"
+    form:
+      signup: "SignUp"
+      fullname: "Fullname"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Password Confirmation"
+      birthday: "Birthday"
+    booking:
+      cofirm_payment: "Are you sure payment for this tour?"
+      confirm_delete: "Are you sure delete this tour?"
+    new:
+      signup_title: "SignUp"
+      signup: "SignUp"
+    create:
+      signup_success: "SignUp Success!"
   session:
     form:
       login: "Login"
@@ -48,36 +116,19 @@ en:
     new:
       login_title: "Login"
       login: "Login"
-    create:
-      login_success: "Login Success"
-  layouts:
-    application:
-      title: "TuanPMSbt26"
-    header:
-      search: "Search"
-      value: ""
-      nameapp: "Travel App"
-      signup: "Signup"
-  users:
-    form:
-      signup: "SignUp"
-    new:
-      signup_title: "SignUp"
-      signup: "SignUp"
-    create:
-      signup_success: "SignUp Success!"
-  session:
-    form:
-      login: "Login"
-    new:
+      remember_me: "Remember me"
       login_title: "Login"
-      login: "Login" 
+      login: "Login"
     create:
       login_failed: "Invail Email Or Password!" 
       login_success: "Login Success!"
   static_pages:
     home:
       title_home: "Home"
+    about:
+      about_us: "About us"
+    contact:
+      contact_us: "Contact"
   admin:
     categories:
       destroy:
@@ -92,6 +143,21 @@ en:
       edit:
         update: "Update"
         edit_category: "Edit category"
+    tourdetails:
+      create:
+        create_success: "Create success!"
+      update:
+        update_success: "Update success"
+      index:
+        tourdetail_title: "Tour detail"
+      destroy:
+        danger_booking: "Having user booking"
+      form:
+        day_start: "Day start"
+      new:
+        create_tour_detail: "Create"
+      edit:
+        edit_tour_detail: "Edit"
     tours:
       new:
         create: "Create"
@@ -111,3 +177,23 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+    slides:
+      form:
+        name: "name"
+        image: "image"
+      new:
+        create: "Create"
+        create_slide: "Create Slide"
+      edit:
+        update: "Update"
+  shared:
+    modal:
+      close: "Close"
+    search:
+      price: "Price"
+      name: "Name"
+      from_date: "From date"
+      to_date: "To date"
+      search: "search"
+      price_from: "From"
+      price_to: "To"

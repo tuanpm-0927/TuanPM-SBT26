@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :load_post, only: [:edit, :update, :show, :destroy]
+  before_action :check_current_user, except: %i[show]
+  before_action :check_user_post, only: :destroy
 
   def index
-    @posts = Post.orderby.paginate page: params[:page], per_page: Settings.per_page
+    @posts = current_user.posts.order_by_newest.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -10,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.order_new
+    @comments = @post.comments.order_by_newest
   end
 
   def edit; end
@@ -45,8 +47,24 @@ class PostsController < ApplicationController
   end
 
   private 
+  def check_current_user
+    unless current_user 
+      flash[:danger] = t ".please_login"
+      redirect_to login_path
+    end
+  end
+
   def params_post
     params.require(:post).permit(:title, :content, :category_id) 
+  end
+
+  def check_user_post
+    if logged_in?
+      if @post.user_id == current_user.id
+        flash[:danger] = t ".delete_failed"
+        redirect_to posts_path
+      end
+    end
   end
 
   def load_post
