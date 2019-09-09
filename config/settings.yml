@@ -12,3 +12,4 @@ step_price: 0.5
 type_post: ["admin", "user"]
 val_day_default: 1
 val_default: 0
+column_content: 3

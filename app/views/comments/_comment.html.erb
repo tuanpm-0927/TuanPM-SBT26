@@ -1,0 +1,14 @@
+<li class="media">
+  <div class="media-body">
+    <strong class="text-success"><%= comment.user.fullname %></strong>
+    <p>
+      <%= comment.content %>
+    </p>
+    <% if check_currentuser(comment.user_id) %>
+      <span class="text-muted pull-right">
+        <%= link_to "", comment_path(comment), method: :delete, 
+        data: { confirm: t(".confirm_delete") }, class: "glyphicon glyphicon-remove", remote: true %>
+      </span>
+    <% end %>
+  </div>
+</li>

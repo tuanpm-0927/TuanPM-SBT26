@@ -3,6 +3,9 @@
 
   <%= f.label t(".title") %>
   <%= f.text_field :title, class: "form-control", required: true %>
+
+  <%= f.label t(".address_source") %>
+  <%= f.select :address_source, options_for_select(load_address, check_address_present(@tour)), {}, { class: "form-control chosen-select", required: true } %>
   
   <%= f.label t(".price") %>
   <%= f.number_field :price, class: "form-control", required: true %>
@@ -27,7 +30,7 @@
   <%= f.text_area :content, class: "ckeditor" %> 
 
   <%= f.label t(".category") %>
-  <%= f.select :category_id, options_for_select(load_categories.collect{ |u| [u.name, u.id] }, @tour.category_id), {}, { class: "form-control", required: true } %>
+  <%= f.select :category_id, options_for_select(load_categories, @tour.category_id), {}, { class: "form-control", required: true } %>
 
   <%= f.submit yield(:button_title), class: "form-control btn btn-primary" %>
 <% end %>
