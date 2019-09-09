@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
 
   namespace :admin do
-    resources :categories, :tours
+    resources :categories, :tours, :slides
   end
 end
