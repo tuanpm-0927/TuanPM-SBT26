@@ -111,3 +111,12 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+    slides:
+      new:
+        create: "Create"
+        create_slide: "Create Slide"
+      edit:
+        update: "Update"
+  shared:
+    modal:
+      close: "Close"

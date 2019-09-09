@@ -1,0 +1,12 @@
+<%= form_for @slide, html: {multipart: true }, url: yield(:url_action), remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".name") %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <div class="form-group">
+    <%= f.file_field :image, accept: t(".accetp_file") %>
+  </div>
+
+  <%= f.submit yield(:button_title), class: "btn btn-primary" %>
+<% end %>

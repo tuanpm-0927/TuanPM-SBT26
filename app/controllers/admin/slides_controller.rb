@@ -7,7 +7,9 @@ class Admin::SlidesController < ApplicationController
 
   def create 
     @slide = Slide.new slide_params
-    @slide.save
+    if @slide.save
+      load_slides
+    end
     respond_to do |format|
       format.js
     end
@@ -20,7 +22,11 @@ class Admin::SlidesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def update
     if @check_update = @slide.update_attributes(slide_params)
@@ -29,6 +35,15 @@ class Admin::SlidesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def destroy
+    if @slide.destroy
+      flash[:success] = t ".delete_success"
+    else
+      flash[:danger] = t ".delete_failed"
+    end
+    redirect_to admin_slides_path
   end
 
   private

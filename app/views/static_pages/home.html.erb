@@ -1,2 +1,19 @@
 <%= provide(:title, t(".title_home")) %>
 <%= render "slider" %>
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, root_path(id_category: category.id), class: "list-group-item" %>
+      <% end %>
+    </ul>
+    <div id="search">
+      <%= render "shared/search" %>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="row">
+      <%= render "shared/tours" %>
+    </div>
+  </div>
+</div>

@@ -43,7 +43,7 @@ class Admin::ToursController < ApplicationController
   private
   def params_tour
     params.require(:tour).permit(:title, :address_source, :price, :discount, :price_discount,
-      :total_day, :start_days, :content, :category_id, :total_member_max)
+      :total_day, :start_days, :content, :category_id, :total_member_max, :images, :description)
   end
 
   def load_tour
