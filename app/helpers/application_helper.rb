@@ -11,4 +11,9 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def check_empty(values)
+    return false if values.empty?
+    true
+  end
 end

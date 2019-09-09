@@ -13,7 +13,15 @@
     </tr>
   </thead>
   <tbody id="category_body">
-    <%= render @categories %>
+    <% if check_empty(@categories) %>
+      <%= render @categories %>
+    <% else %>
+      <tr>
+        <td>
+          <%= t(".empty") %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 <div id="paginate_category">

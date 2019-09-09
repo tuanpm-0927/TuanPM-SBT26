@@ -7,3 +7,8 @@ def_perpage: 5
 def_page: 1
 checkbox_true: "1"
 def_image: "/uploads/category/image/88/download.jpeg"
+val_price: 0
+step_price: 0.5
+type_post: ["admin", "user"]
+val_day_default: 1
+val_default: 0

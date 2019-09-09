@@ -6,7 +6,7 @@ class Admin::CategoriesController < ApplicationController
   before_action :load_categories, only: [:create]
 
   def index
-    @categories = Category.orderby.paginate(page: params[:page], per_page: Settings.def_perpage)
+    @categories = Category.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
   end
 
   def new
@@ -42,7 +42,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    authorize @category
     if @category.tours.length > 0 and check_tour_booked?@category.tours
       flash[:danger] = t ".have_booking_tour_of_category"
     elsif @category.destroy
@@ -62,7 +61,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def load_categories
-    @categories = Category.orderby.paginate(page: Settings.def_page, per_page: Settings.def_perpage)
+    @categories = Category.order_by_newest.paginate(page: Settings.def_page, per_page: Settings.def_perpage)
   end
 
   def category_params

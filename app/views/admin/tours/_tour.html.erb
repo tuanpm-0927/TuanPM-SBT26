@@ -1,0 +1,16 @@
+<tr>
+  <td><%= tour.title %></td>
+  <td><%= tour.category.name %></td>
+  <td><%= tour.address_source %></td>
+  <td><%= tour.price %></td>
+  <td><%= tour.price_discount %></td>
+  <td><%= tour.total_day %></td>
+  <td><%= tour.total_member_max %></td>
+  <td><%= tour.total_member_current %></td>
+  <td><%= tour.rating_average %></td>
+  <td class="row">
+    <%= link_to t(".edit"), edit_admin_tour_path(tour), class: "col-sm-6 btn btn-primary" %>
+    <%= link_to t(".delete"), admin_tour_path(tour), method: :delete, 
+          data: { confirm: t(".cofirm_delete") }, class: "col-sm-6 btn btn-danger" %>
+  </td>
+</tr>
