@@ -15,5 +15,4 @@
 //= require rails-ujs   
 //= require activestorage
 //= require turbolinks
-//= require select_day
 //= require ckeditor/init
