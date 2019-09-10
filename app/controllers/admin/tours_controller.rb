@@ -4,19 +4,23 @@ class Admin::ToursController < ApplicationController
 
   def index
     @tours = Tour.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
+    authorize @tours
   end
 
   def listtour
+    authorize @tour
     @tour_details = @tour.tourdetails
   end
 
   def new
     @tour = Tour.new
+    authorize @tour
     @image = @tour.images.build
   end
   
   def create
     @tour = Tour.new params_tour
+    authorize @tour
     if @tour.save
       params[:images][:image_link].each do |image|
         @image_attachment = @tour.images.create!(image_link: image, tour_id: @tour.id)
@@ -28,6 +32,7 @@ class Admin::ToursController < ApplicationController
   end
   
   def update
+    authorize @tour
     if @tour.update_attributes(params_tour)
       flash[:success] = t ".update_success"
       redirect_to admin_tours_path
@@ -36,10 +41,13 @@ class Admin::ToursController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @tour
+  end
 
   def destroy
-    @tour.is_booking_tour
+    authorize @tour
+    check_booking_tour
     if @tour.destroy
       flash[:success] = t ".delete_success"
       redirect_to admin_tours_path

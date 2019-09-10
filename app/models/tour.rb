@@ -17,7 +17,9 @@ class Tour < ApplicationRecord
   end
 
   def is_booking_tour
-    return true if tourdetails.check_booking
+    tourdetails.each do |tourdetail|
+      return true if tourdetail.total_current_booking > 0
+    end
   end
 
 end

@@ -30,12 +30,38 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  edit: "Edit"
   title_contact: "Contact"
   title_about: "About"
   hello: "Hello world"
   title_notfound: "Notfound"
   active: "Active"
+  password_resets:
+    create:
+      email_not_found: "Email not found!"
+    new:
+      submit: "Change password"
+      title_forgot_password: "Forgot password"
+    edit:
+      password: "Password"
+      title: "Change password"
+      confirmation: "Confirmation"
+      submit: "Change Password"
+      change_password: "Change password"
+    update:
+      reset_password_success: "Reset password success!"
+  account_activations:
+    edit:
+      activated: "Activated"
+  user_mailer:
+    account_activation:
+      title: "Active account"
+      hi: "Hi"
+      welcome: "Welcome"
+      Activate: "Activate"
   posts:
+    post:
+      confirm: "Are you delete post?"
     index:
       post_title: "Post"
       create: "Write post"
@@ -50,11 +76,32 @@ en:
     new:
       new: "New Post"
       new_post: "Write post"
+    destroy:
+      delete_failed: "Delete failed!"
+      delete_success: "Delete success!"
+    create:
+      create_success: "Create post success!"
+    edit:
+      edit_tour: "Edit post"
+    update:
+      update_success: "Update success!"
   payments:
     please_recharge_money: "Please recharge money"
     create:
       payment_success: "Payment success!"
   tour_bookings:
+    tour:
+      tour_detail: "Tour detail"
+    show:
+      select_day: "Select day"
+      booking: "Booking"
+      start_day: "Start day: "
+      total_day: "Total day: "
+      source_address: "Source: "
+      price: "Price"
+      price_discount: "Price discount"
+      total_booking: "Total booking"
+      tour_guide: "Tour guide"
     create_booking:
       booking_user_max: "This tour person booking maximum! Please booking tour another!"
       booking_success: "Booking success!"
@@ -70,6 +117,8 @@ en:
       address: "Address"
       note: "Note"
       bookingtour: "Booking"
+    destroy:
+      delete_booking_success: "Delete booking"
   comments:
     form:
       content: "Content"
@@ -87,6 +136,7 @@ en:
       manager_post: "Posts"
       login: "Login"
   users:
+    
     payment_history:
       payment_history: "Payment History"
     history:
@@ -101,11 +151,13 @@ en:
     booking:
       cofirm_payment: "Are you sure payment for this tour?"
       confirm_delete: "Are you sure delete this tour?"
+      tour_booking: "My booking"
     new:
       signup_title: "SignUp"
       signup: "SignUp"
     create:
       signup_success: "SignUp Success!"
+      check_mail: "Please Check Mail!"
   session:
     form:
       login: "Login"
@@ -123,13 +175,32 @@ en:
       login_failed: "Invail Email Or Password!" 
       login_success: "Login Success!"
   static_pages:
+    admin_home:
+      booking_manager: "Booking manager"
+      manager_category: "Manager category"
+      manager_slide: "Manager slide"
+      manager_tour: "Manager tour"
+      manager_user: "Manager user"
     home:
+      tour_newest: "Tour Newest"
       title_home: "Home"
+      post_newest: "Post Newest"
+      category_tour: "Tour"
+      category_post: "Post"
     about:
       about_us: "About us"
     contact:
       contact_us: "Contact"
   admin:
+    bookings:
+      index:
+        booking_title: "Bookings"
+        fullname: "Fullname"
+        phone_number: "Phone number"
+        address: "Address"
+        note: "Note"
+        name_tour: "Name tour"
+        start_day: "Start day"
     categories:
       destroy:
         delete_success: "Delete success!"
@@ -137,6 +208,12 @@ en:
         category_update_success: "Update Success!"
       index:
         category_title: "Categories"
+        create: "Create"
+        image: "Image"
+        name: "Name"
+        type: "Type"
+        action: "Action"
+        user_not_allow: "User not allow!"
       new: 
         create: "Create"
         create_category: "Create Category"
@@ -144,6 +221,8 @@ en:
         update: "Update"
         edit_category: "Edit category"
     tourdetails:
+      tourdetail:
+        cofirm_delete: "Are you sure delete?"
       create:
         create_success: "Create success!"
       update:
@@ -159,6 +238,11 @@ en:
       edit:
         edit_tour_detail: "Edit"
     tours:
+      tour:
+        cofirm_delete: "Are you sure delete tour?"
+        delete: "Delete"
+        tour_detail: "Tour detail"
+        edit: "Edit"
       new:
         create: "Create"
         price_discount: "Price Discount"
@@ -166,6 +250,7 @@ en:
         edit: "Edit"
         edit_tour: "Edit tour"
       index: 
+        create: "Create"
         title: "Title"
         category_name: "Category"
         address_source: "Address Source"
@@ -177,7 +262,21 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+        user_not_allow: "User now allow"
+      form:
+        title: "Title"
+        description: "Description"
+        address_source: "Address Source"
+        price: "Price"
+        discount: "Discount"
+        total_day: "Total day"
+        total_member_max: "Total member max"
+        image: "Image"
+        content: "Content"
+        category: "Category"
     slides:
+      destroy:
+        delete_success: "Delete success"
       form:
         name: "name"
         image: "image"
@@ -186,6 +285,17 @@ en:
         create_slide: "Create Slide"
       edit:
         update: "Update"
+      slide:
+        cofirm_delete: "Are you sure delete slide?"
+        edit: "Edit"
+        delete: "Delete"
+      index:
+        image: "Image"
+        name: "Name"
+        action: "Action"
+        create: "Create"
+        slide_title: "Slides" 
+        user_not_allow: "User not allow!"
   shared:
     modal:
       close: "Close"
@@ -197,3 +307,5 @@ en:
       search: "search"
       price_from: "From"
       price_to: "To"
+    tours:
+      view: "View"

@@ -5,6 +5,19 @@ class PasswordResetsController < ApplicationController
 
   def edit; end
 
+  def create
+    @user = User.find_by(email: params[:password_reset][:email].downcase)
+    if @user
+      @user.create_reset_digest
+      @user.send_password_reset_email
+      flash[:info] = t ".email_reset"
+      redirect_to root_url
+    else
+      flash.now[:danger] = t ".email_not_found"
+      render :new
+    end
+  end
+
   def update
     if params[:user][:password].empty?
       @user.errors.add(:password, t(".error_empty"))
@@ -13,7 +26,7 @@ class PasswordResetsController < ApplicationController
       log_in @user
       @user.update_attribute(:reset_digest, nil)
       flash[:success] = t ".reset_password_success"
-      redirect_to @user
+      redirect_to root_path
     else
       render :edit
     end
@@ -31,10 +44,8 @@ class PasswordResetsController < ApplicationController
     redirect_to notfound_path
   end
 
-  # Confirms a valid user.
   def valid_user
-    unless @user.authenticated?(:reset, params[:id])
-      redirect_to root_url
-    end
+    return if @user.activated? && @user.authenticated?(:reset, params[:id])
+    redirect_to root_url
   end
 end

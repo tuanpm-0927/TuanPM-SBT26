@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   post "/booking", to: "tour_bookings#create_booking"
   get "/userbooking", to: "users#booking"
   get "/paymenthistory", to: "users#payment_history"
-  get "password_resets/new"
-  get "password_resets/edit"
   get "/admin", to: "static_pages#admin_home"
 
   resources :users, except: %i[new]
@@ -27,7 +25,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
   resources :tour_bookings
   resources :payments, only: [:new, :create]
-
+  resources :account_activations, only: :edit
+  resources :password_resets, except: [:index, :show, :destroy]
+  
   namespace :admin do
     resources :categories, :slides, :tours, :bookings
     resources :tours do

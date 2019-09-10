@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+  <div class="card col-sm-4">>
+      <div class="card-body">
+        <%= show_image(post.category) %>
+        <h4 class="card-title text-center color-red"><%= post.title %></h4>
+      <%= link_to t(".read"), post_path(post), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

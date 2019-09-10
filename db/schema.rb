@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_013125) do
+ActiveRecord::Schema.define(version: 2019_09_10_132345) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -201,6 +201,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_013125) do
     t.string "password_digest"
     t.integer "money", default: 0
     t.string "reset_digest"
+    t.string "activation_digest"
+    t.boolean "activated"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

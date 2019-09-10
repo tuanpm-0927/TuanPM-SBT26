@@ -25,7 +25,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   config.active_storage.service = :local
 
@@ -35,6 +35,21 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
+
+  config.action_mailer.delivery_method = :smtp
+  host = "ascascasc.herokuapp.com" #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "gmail.com",
+    :user_name            => "minhtuanit.1997@gmail.com",
+    :password             => "rockandroll080497",
+    :authentication       => "login",
+    :enable_starttls_auto => true
+  }
 
   # Use a different cache store in production.
   # config.active_job.queue_name_prefix = "TuanPM-SBT26_#{Rails.env}"
@@ -61,7 +76,4 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
 end

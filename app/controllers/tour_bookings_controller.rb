@@ -1,5 +1,6 @@
 class TourBookingsController < ApplicationController
   before_action :load_tour, only: [:tour, :show]
+  before_action :load_booking, only: [:destroy]
 
   def tour
     @tourbookings = @tour.tourdetails
@@ -35,12 +36,15 @@ class TourBookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find_by(id: params[:booking_id])
     unless @booking
       flash[:danger] = t ".delete_booking_failed"
     else
-      @booking.tourdetail.update_attribute(:total_current_booking, @booking.tourdetai.total_current_booking - 1)
-      flash[:success] = t ".delete_booking_success"
+      @booking.tourdetail.update_attribute(:total_current_booking, @booking.tourdetail.total_current_booking - 1)
+      if @booking.destroy
+        flash[:success] = t ".delete_booking_success"
+      else
+        flash[:danger] = t ".delete_booking_failed"
+      end
     end
     redirect_to userbooking_path
   end
@@ -71,6 +75,10 @@ class TourBookingsController < ApplicationController
       flash[:danger] = t ".tour_detail_notfound"
       redirect_to notfound_path
     end
+  end
+
+  def load_booking
+    @booking = Booking.find_by(id: params[:id])
   end
 
   def load_tour

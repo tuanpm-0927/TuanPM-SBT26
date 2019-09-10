@@ -23,7 +23,7 @@ class PaymentsController < ApplicationController
   def load_money_payment
     @booking = Booking.find_by(id: params[:booking_id])
     unless @booking
-      flash[:danger] = ".booking_notfound"
+      flash[:danger] = t ".booking_notfound"
       redirect_to root_path
     end
     tour = @booking.tourdetail.tour

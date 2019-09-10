@@ -60,10 +60,7 @@ class PostsController < ApplicationController
 
   def check_user_post
     if logged_in?
-      if @post.user_id == current_user.id
-        flash[:danger] = t ".delete_failed"
-        redirect_to posts_path
-      end
+      return true if @post.user_id == current_user.id
     end
   end
 

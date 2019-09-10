@@ -1,17 +1,17 @@
 class StaticPagesController < ApplicationController
   layout :user_layout 
   before_action :load_home
+  before_action :load_default, only: [:home, :search]
 
   def home
-    @tours = Tour.order_by_newest.limit(Settings.limit)
     if params[:id_category]
-      @tours = Tour.tour_by_category(params[:id_category])
+      @tours = Tour.tour_by_category(params[:id_categorytour_])
+    elsif 
+      @posts = Post.post_by_category(params[:id_category_post])
     end
   end
 
-  def admin_home
-    
-  end
+  def admin_home; end
 
   def search
     search = params[:search]
@@ -31,6 +31,11 @@ class StaticPagesController < ApplicationController
     @slides = Slide.all
     @category_tours = Category.admin
     @category_posts = Category.user
+  end
+
+  def load_default
+    @tours = Tour.order_by_newest.limit(Settings.limit)
+    @posts = Post.order_by_newest.limit(Settings.limit)
   end
 
   def user_layout

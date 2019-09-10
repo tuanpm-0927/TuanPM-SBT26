@@ -34,7 +34,6 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 /config/application.yml
-/config/database.yml
 
 # Ignore node_modules
 node_modules/

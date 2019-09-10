@@ -1,19 +1,21 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token, :reset_token
+  before_save :downcase_email
+  before_create :create_activation_digest
   enum admin: {admin: 0, user: 1}
   has_many :bookings, dependent: :destroy
   has_many :posts, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  before_save :downcase_email
+  
+  has_secure_password
+
   validates :fullname, presence: true, length: { maximum: Settings.length_max_name }
   validates :email, presence: true,uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: Settings.length_min_pass },
    allow_nil: true 
   validates :birthday, presence: true
-
-  has_secure_password
 
   def remember
     self.remember_token = User.new_token
@@ -25,10 +27,27 @@ class User < ApplicationRecord
     false
   end
 
+  def activate
+    update_attributes activated: true
+  end
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false unless digest
     BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute :reset_digest, User.digest(reset_token)
   end
 
   def forget
@@ -48,7 +67,15 @@ class User < ApplicationRecord
   end
 
   private 
+
   def downcase_email
+    byebug
     email.downcase!
+  end
+
+  def create_activation_digest
+    byebug
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end

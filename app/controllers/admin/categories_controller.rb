@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class Admin::CategoriesController < ApplicationController
-  before_action :check_admin
   before_action :load_category, except: [:index, :new, :create]
   before_action :load_categories, only: [:create]
 
   def index
     @categories = Category.order_by_newest.paginate(page: params[:page], per_page: Settings.def_perpage)
-    unauthorize @categories
+    authorize @categories
   end
 
   def new
     @category = Category.new
+    authorize @category
     respond_to do |format|
       format.js
     end
@@ -19,21 +19,26 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new category_params
+    authorize @category
     @category.save
     respond_to do |format|
       format.js
     end
   end
 
-  def show; end
+  def show
+    authorize @category
+  end
 
   def edit
+    authorize @category
     respond_to do |format|
       format.js
     end
   end
 
   def update
+    authorize @category
     if @check_update = @category.update_attributes(category_params)
       flash[:success] = t ".category_update_success"
     end
@@ -43,6 +48,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize @category
     if @category.tours.length > 0 and check_tour_booked?@category.tours
       flash[:danger] = t ".have_booking_tour_of_category"
     elsif @category.destroy

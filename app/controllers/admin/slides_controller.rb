@@ -3,10 +3,12 @@ class Admin::SlidesController < ApplicationController
 
   def index
     @slides = Slide.paginate(page: params[:page], per_page:  Settings.def_perpage)
+    authorize @slides
   end
 
   def create 
     @slide = Slide.new slide_params
+    authorize @slide
     params[:slide][:active] = Settings.checkbox_true ? true: false
     if @slide.save
       load_slides
@@ -18,18 +20,21 @@ class Admin::SlidesController < ApplicationController
 
   def new
     @slide = Slide.new
+    authorize @slide
     respond_to do |format|
       format.js
     end
   end
 
   def edit
+    authorize @slide
     respond_to do |format|
       format.js
     end
   end
 
   def update
+    authorize @slide
     if @check_update = @slide.update_attributes(slide_params)
       flash[:success] = t ".slide_update_success"
     end
@@ -39,6 +44,7 @@ class Admin::SlidesController < ApplicationController
   end
 
   def destroy
+    authorize @slide
     if @slide.destroy
       flash[:success] = t ".delete_success"
       redirect_to admin_slides_path

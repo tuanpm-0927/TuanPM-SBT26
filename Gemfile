@@ -15,18 +15,15 @@ gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "mini_magick"
-gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "pry"
 gem "puma", "~> 3.11"
 gem "pundit"
 gem "rails", "~> 5.2.3"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
-gem "turbolinks", "~> 5"
-gem "cancancan"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "~> 3.1.7"
-gem "ckeditor"
+gem "ckeditor", github: "galetahub/ckeditor"
 gem "chosen-rails"
 
 group :development, :test do
@@ -38,6 +35,11 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "mysql2"
+end
+
+group :production do
+  gem "pg"
 end
 
 group :test do
