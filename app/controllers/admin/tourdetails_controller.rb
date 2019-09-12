@@ -41,7 +41,7 @@ class Admin::TourdetailsController < ApplicationController
 
   def destroy
     authorize @tourdetail
-    if @tourdetail.total_booking > 0
+    if @tourdetail.total_current_booking > 0
       flash[:danger] = t ".danger_booking"
     else
       if @tourdetail.destroy

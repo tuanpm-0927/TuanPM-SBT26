@@ -1,0 +1,11 @@
+<%= form_for @coupon, html: {multipart: true }, url: yield(:url_action), remote: true do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".name") %>
+  <%= f.text_field :coupon, class: "form-control" %>
+
+  <%= f.label t(".price") %>
+  <%= f.number_field :value, class: "form-control" %>
+
+  <%= f.submit yield(:button_title), class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= coupon.coupon %></td>
+  <td><%= coupon.active %></td>
+  <td><%= coupon.value %></td>
+  <td class="row">
+    <%= link_to t(".delete"), admin_coupon_path(coupon), method: :delete, 
+      data: { confirm: t(".cofirm_delete") }, class: "btn btn-primary" %>
+    <%= link_to t(".edit"), edit_admin_coupon_path(coupon),
+      { class: "btn btn-primary", "data-toggle" => "modal",
+        "data-target" => "#myModal", remote: true } %>
+  </td>
+</tr>

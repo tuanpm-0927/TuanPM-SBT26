@@ -1,0 +1,13 @@
+<% provide(:title, @user.fullname) %>
+<div class="row center">
+  <h3><%= t(".user_name:") %> <%= @user.fullname %></h3>
+  <h3><%= t(".birth_day:") %> <%= @user.birthday %></h3>
+  <h3><%= t(".money") %> <%= @user.money %></h3>
+    <h3 class="text-center"><%= t(".recharge") %></h3>
+  <%= form_for(:recharge, url: recharge_path, method: :post) do |f| %>
+    <%= f.label t(".coupon") %>
+    <%= f.text_field :coupon, class: "form-control" %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit t(".recharge"), class: "btn btn-primary center" %>
+  <% end %>
+</div>

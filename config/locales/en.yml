@@ -136,7 +136,13 @@ en:
       manager_post: "Posts"
       login: "Login"
   users:
-    
+    recharge:
+      coupon_notfound: "Coupon notfound"
+      recharge_success: "Recharge Success"
+      counpon_used: "Coupon used"
+    show:
+      coupon: "Coupon"
+      recharge: "Recharge"
     payment_history:
       payment_history: "Payment History"
     history:
@@ -192,6 +198,22 @@ en:
     contact:
       contact_us: "Contact"
   admin:
+    coupons:
+      index:
+        coupon: "Coupon"
+      destroy:
+        delete_success: "Delete success"
+      coupon:
+        cofirm_delete: "Are you sure delete coupon?"
+      edit:
+        update: "Update"
+      form:
+        name: "Name"
+        price: "Price"
+      new:
+        create: "Create"
+      update:
+        slide_update_success: "Update coupon success!"
     bookings:
       index:
         booking_title: "Bookings"
@@ -231,6 +253,7 @@ en:
         tourdetail_title: "Tour detail"
       destroy:
         danger_booking: "Having user booking"
+        delete_success: "Delete success"
       form:
         day_start: "Day start"
       new:

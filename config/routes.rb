@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/userbooking", to: "users#booking"
   get "/paymenthistory", to: "users#payment_history"
   get "/admin", to: "static_pages#admin_home"
+  post "/recharge", to: "users#recharge"
 
   resources :users, except: %i[new]
   resources :posts
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   resources :password_resets, except: [:index, :show, :destroy]
   
   namespace :admin do
-    resources :categories, :slides, :tours, :bookings
+    resources :categories, :slides, :tours, :bookings, :coupons
     resources :tours do
       resources :tourdetails
     end

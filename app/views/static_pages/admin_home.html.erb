@@ -2,7 +2,7 @@
   <h3 class="text-center"><%= t(".booking_manager") %></h3>
 </div>
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= t(".manager_category") %></h5>
@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= t(".manager_slide") %></h5>
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= t(".manager_tour") %></h5>
@@ -26,7 +26,17 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+
+  <div class="col-sm-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= t(".manager_coupon") %></h5>
+          <%= link_to t(".manager_coupon"), admin_coupons_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-sm-2">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= t(".manager_user") %></h5>

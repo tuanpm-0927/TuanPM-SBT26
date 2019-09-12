@@ -1,0 +1,22 @@
+<% provide :title, t(".coupon") %>
+<h1><%= t(".coupon") %></h1>
+<%= link_to t(".create"), new_admin_coupon_path, { class: "btn btn-primary",
+  "data-toggle" => "modal", "data-target" => "#myModal", remote: true } %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t(".name") %></th>
+      <th><%= t(".active") %></th>
+      <th><%= t(".value") %></th>
+      <th><%= t(".action") %></th>
+    </tr>
+  </thead>
+  <tbody id="slide_body">
+    <%= render @coupons %>
+  </tbody>
+</table>
+<div id="paginate_slide">
+  <%= will_paginate %>
+</div>
+  
+<%= render "shared/modal" %>

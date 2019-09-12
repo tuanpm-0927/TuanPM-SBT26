@@ -23,6 +23,7 @@
                 <% else %>
                   <li><%= link_to t(".change_password"), edit_password_reset_path(email: current_user.email,
                     id: current_user.id) %></li>
+                  <li><%= link_to t(".my_profile"), user_path(current_user) %></li>
                   <li><%= link_to t(".userbooking"), userbooking_path %></li>
                   <li><%= link_to t(".payment_history"), paymenthistory_path %></li>
                   <li><%= link_to t(".manager_post"), posts_path %></li>
