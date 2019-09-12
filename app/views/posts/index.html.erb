@@ -2,6 +2,13 @@
 <h1><%= t(".post_title") %></h1>
 <%= link_to t(".create"), new_post_path, { :class => "btn btn-primary" } %>
 
+<div class="form-search">
+  <%= search_form_for(@q, url: posts_path) do |f| %>
+    <%= f.search_field :post_cont, class: "form-control" %>
+    <%= f.submit t(".search"), class: "btn btn-search" %>
+  <% end %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>

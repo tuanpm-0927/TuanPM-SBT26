@@ -1,20 +1,19 @@
 class Admin::TourdetailsController < ApplicationController
-  before_action :load_tour, only: [:edit, :index, :new, :destroy]
+  authorize_resource
+  
+  before_action :load_tour, only: [:edit, :index, :new, :destroy, :create]
   before_action :load_tour_detail, only: [:edit, :update, :destroy]
 
   def index
     @tourdetails = @tour.tourdetails.paginate(page: params[:page], per_page: Settings.def_perpage)
-    authorize @tourdetails
   end
  
   def new
     @tourdetail = @tour.tourdetails.build
-    authorize @tourdetail
   end
 
   def create
     @tourdetail = Tourdetail.new params_tour_detail
-    authorize @tourdetail
     if @tourdetail.save
       load_tour
       flash[:success] = t ".create_success"
@@ -25,11 +24,9 @@ class Admin::TourdetailsController < ApplicationController
   end
 
   def edit
-    authorize @tourdetail
   end
   
   def update
-    authorize @tourdetail
     if @tourdetail.update_attributes(params_tour_detail)
       flash[:success] = t ".update_success"
       load_tour
@@ -40,14 +37,24 @@ class Admin::TourdetailsController < ApplicationController
   end
 
   def destroy
-    authorize @tourdetail
     if @tourdetail.total_current_booking > 0
       flash[:danger] = t ".danger_booking"
-    else
       if @tourdetail.destroy
         flash[:success] = t ".delete_success"
       else
         flash[:danger] = t ".delete_failed"
+      end
+    else
+      begin
+        ActiveRecord::Base.transaction do
+        if @tourdetail.really_destroy!
+          flash[:success] = t ".delete_success"
+        else
+          flash[:danger] = t ".delete_failed"
+        end
+        rescue ActiveRecord::RecordInvalid => exception
+          flash[:danger] = t ".error_system"
+        end
       end
     end
     redirect_to admin_tour_tourdetails_path(@tour)

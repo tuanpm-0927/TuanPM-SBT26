@@ -4,7 +4,7 @@
   <div class="col-sm-3">
     <ul class="list-group">
       <h3 class="text-center"><%= t(".category_tour") %></h3>
-      <% @category_tours.each do |category| %>
+      <% category_tour.each do |category| %>
         <%= link_to category.name, root_path(id_category_tour: category.id), class: "list-group-item" %>
       <% end %>
     </ul>
@@ -13,7 +13,7 @@
     </div>
     <ul class="list-group">
       <h3 class="text-center"><%= t(".category_post") %></h3>
-      <% @category_posts.each do |category| %>
+      <% category_post.each do |category| %>
         <%= link_to category.name, root_path(id_category_post: category.id), class: "list-group-item" %>
       <% end %>
     </ul>

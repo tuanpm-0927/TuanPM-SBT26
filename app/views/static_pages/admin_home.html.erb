@@ -44,4 +44,16 @@
       </div>
     </div>
   </div>
+
+  <div class="col-sm-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= t(".manager_booking") %></h5>
+          <%= link_to t(".manager_booking"), admin_bookings_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <%= line_chart @data, @options %>
 </div>

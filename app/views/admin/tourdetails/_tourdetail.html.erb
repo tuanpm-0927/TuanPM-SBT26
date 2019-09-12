@@ -1,6 +1,6 @@
 <tr>
   <td><%= tourdetail.day_start %></td>
-  <td><%= link_to tourdetail.total_current_booking, admin_bookings_path(tourdetail_id: tourdetail.id) %></td>
+  <td><%= link_to tourdetail.total_current_booking, admin_booking_path(id: tourdetail.id) %></td>
   <td>
     <%= link_to t(".edit"), edit_admin_tour_tourdetail_path(tourdetail.tour,tourdetail), class: "col-sm-6 btn btn-primary" %>
     <%= link_to t(".delete"), admin_tour_tourdetail_path(tourdetail.tour, tourdetail), method: :delete, 

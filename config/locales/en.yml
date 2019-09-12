@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  statistical: "Statistical" 
   edit: "Edit"
   title_contact: "Contact"
   title_about: "About"
@@ -63,6 +64,7 @@ en:
     post:
       confirm: "Are you delete post?"
     index:
+      search: "Search"
       post_title: "Post"
       create: "Write post"
       title: "Title"
@@ -86,9 +88,12 @@ en:
     update:
       update_success: "Update success!"
   payments:
+    edit:
+      confirm_success: "Payment success"
     please_recharge_money: "Please recharge money"
     create:
       payment_success: "Payment success!"
+      confirm_email_to_payment: "Confirm Email to payment"
   tour_bookings:
     tour:
       tour_detail: "Tour detail"
@@ -102,12 +107,14 @@ en:
       price_discount: "Price discount"
       total_booking: "Total booking"
       tour_guide: "Tour guide"
+      notfound_tour_current: "Notfound Tour Current!"
     create_booking:
       booking_user_max: "This tour person booking maximum! Please booking tour another!"
       booking_success: "Booking success!"
+      notification_booking: "Booking tour %{name}, price: %{price}, status: %{status}, information: %{link_info}"
     tourbooking:
       day_start: "Day start:"
-    new_booking:
+    new_booking:  
       start_day: "Day start:"
       sale: "(Sale)"
       information_booktour: "Information booking"
@@ -119,6 +126,7 @@ en:
       bookingtour: "Booking"
     destroy:
       delete_booking_success: "Delete booking"
+      destroy_booking: "User %{user} delete booking name: %{name} "
   comments:
     form:
       content: "Content"
@@ -150,7 +158,7 @@ en:
     form:
       signup: "SignUp"
       fullname: "Fullname"
-      email: "Email"
+      email: "Email" 
       password: "Password"
       password_confirmation: "Password Confirmation"
       birthday: "Birthday"
@@ -216,6 +224,7 @@ en:
         slide_update_success: "Update coupon success!"
     bookings:
       index:
+        search: "Search"
         booking_title: "Bookings"
         fullname: "Fullname"
         phone_number: "Phone number"
@@ -223,6 +232,8 @@ en:
         note: "Note"
         name_tour: "Name tour"
         start_day: "Start day"
+      update:
+        update_success: "Update request success!"
     categories:
       destroy:
         delete_success: "Delete success!"
@@ -235,6 +246,7 @@ en:
         name: "Name"
         type: "Type"
         action: "Action"
+        search: "Search"
         user_not_allow: "User not allow!"
       new: 
         create: "Create"
@@ -273,6 +285,7 @@ en:
         edit: "Edit"
         edit_tour: "Edit tour"
       index: 
+        search: "Search"
         create: "Create"
         title: "Title"
         category_name: "Category"
@@ -332,3 +345,59 @@ en:
       price_to: "To"
     tours:
       view: "View"
+  activerecord:
+    errors:
+      models:
+        course:
+          attributes:
+            course_subjects:
+              course_subjects_too_short: "Course should have at least %{count} Subject(s)"
+              course_subjects_duplicate_subject: "Subject must be unique"
+            date_start:
+              date_start_must_be_large_than_today: "Date start must be equal or large than today"
+            date_end:
+              date_end_must_be_equal_large_than_date_start: "Date end must be large or equal than Date start"
+        user:
+          birthday_invalid: "Birthday invalid"
+  devise:
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        btn_confirm: "Confirm"
+    sessions:
+      form:
+        login: "Login"
+        email: "Email"
+        password: "Password"
+      new:
+        login_title: "Login"
+        login: "Login"
+    registrations:
+      new:
+        sign_up: "Sign up"
+        email: "Email"
+        full_name: "Fullname"
+        phone_number: "Phone number"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+    passwords:
+      new:
+        forgot_password: "Forgot Password"
+        send_me_forgot_password: "Send me forgot password"
+        email: "Email"
+    confirmations:
+      new: 
+        confirmation: "Confirmation"
+      form:
+        resend_code: "Resend Code"
+        email: "Email"
+  payment_mailer:
+    payment_confirm:
+      confirm_payment_click_bellow: "Confirm Payment Click Bellow"
+      confirm_payment: "Confirm Payment"
+      welcome: "Welcome"
+      hi: "Hi"
+      title: "Confirm Payment"
+  controllers:
+    application:
+      login_please: "Pleae Login"

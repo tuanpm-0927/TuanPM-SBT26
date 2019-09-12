@@ -1,20 +1,18 @@
-<%= form_for(:search, url: search_path) do |f| %>
-  <%= f.label t(".price_from") %>
-  <%= f.range_field :price_from, class: "form-control", in: 0..10000000, step: 100000 %>
-  
-  <br>
+<%= form_tag(root_path, method: :post) do %>
+  <%= label_tag t(".price_from") %>
+  <%= range_field_tag :price_from, "", value: 0, class: "form-control", in: 0..10000000, step: 100000 %>
+
+  <br>s
   <div id="price_val_from"></div>
   <br>
-  
-  <%= f.label t(".price_to") %>
-  <%= f.range_field :price_to, class: "form-control", in: 0..10000000, step: 100000 %>
+
+  <%= label_tag t(".price_to") %>
+  <%= range_field_tag :price_to, "", class: "form-control", value: 10000000, in: 0..10000000, step: 100000 %>
   
   <br>
   <div id="price_val_to"></div>
   <br>
 
-  <%= f.label t(".name") %>
-  <%= f.text_field :name, class: "form-control" %>
-
-  <%= f.submit t(".search"), class: "btn btn-primary center" %>
+  <%= text_field_tag :name, "", class: "form-control" %>
+  <%= submit_tag t(".search"), class: "btn btn-primary center" %>
 <% end %>

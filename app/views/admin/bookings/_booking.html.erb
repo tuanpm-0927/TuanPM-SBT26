@@ -3,6 +3,13 @@
   <td><%= booking.informationbooktour.phonenumber %></td>
   <td><%= booking.informationbooktour.address %></td>
   <td><%= text_area_tag t(".note"), booking.informationbooktour.note, disabled: true, class: "form-control"%></td>
-  <td><%= booking.tourdetail.tour.title %></td>
+  <td><%= link_to booking.tourdetail.tour.title, tour_booking_path(booking.tourdetail.tour)  %></td>
   <td><%= booking.tourdetail.day_start %></td>
+  <td> 
+    <% if booking.request %>
+      <%= link_to t(".cancel"), admin_booking_path(booking, request: false), method: :put, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to t(".accept"), admin_booking_path(booking, request: true), method: :put, class: "btn btn-primary" %>
+    <% end %>
+  </td>
 </tr>

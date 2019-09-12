@@ -1,6 +1,6 @@
 <div  id="myCarousel" class="carousel slide margintopbottom" data-ride="carousel">
   <div class="carousel-inner">
-    <% @slides.each do |slide| %>
+    <% slide_all.each do |slide| %>
       <% if check_active(slide) %>
         <div class="item active">
           <%= show_image_slide(slide) %>

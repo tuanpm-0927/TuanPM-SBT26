@@ -10,7 +10,9 @@
     </div>  
     <div class="col-sm-3 text-center">
       <% unless check_paymented(booking) %>
-        <%= link_to t(".payment"), payments_path(booking_id: booking.id), data: { confirm: t(".cofirm_payment") }, method: :post, class: "btn btn-primary" %>
+        <% if booking.request %>
+          <%= link_to t(".payment"), payments_path(booking_id: booking.id), data: { confirm: t(".cofirm_payment") }, method: :post, class: "btn btn-primary" %>
+        <% end %>
         <%= link_to t(".delete"), tour_booking_path(booking),data: { confirm: t(".confirm_delete") },
           method: :delete, class: "btn btn-primary" %>
       <% else %>

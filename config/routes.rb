@@ -3,15 +3,13 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "static_pages#home", param: :category_id
-
-  post "/search", to: "static_pages#search"
+  root "static_pages#home"
+  
+  devise_for :users, controllers:{omniauth_callbacks: "users/omniauth_callbacks"}
+  
+  post "/", to: "static_pages#home"
   get "/about", to: "static_pages#about"
   get "/contact", to: "static_pages#contact"
-  get "/signup", to: "users#new"
-  get "/login", to: "session#new"
-  post "/login", to: "session#create"
-  get "/logout", to: "session#destroy"
   get "/notfound", to: "static_pages#notfound"
   get "/tour", to:"tour_bookings#tour"
   get "/booking", to: "tour_bookings#new_booking"
@@ -21,14 +19,15 @@ Rails.application.routes.draw do
   get "/admin", to: "static_pages#admin_home"
   post "/recharge", to: "users#recharge"
 
-  resources :users, except: %i[new]
+  
+  resources :users, only: [:show, :index]
   resources :posts
   resources :comments, only: [:create, :destroy]
   resources :tour_bookings
-  resources :payments, only: [:new, :create]
+  resources :payments
   resources :account_activations, only: :edit
   resources :password_resets, except: [:index, :show, :destroy]
-  
+
   namespace :admin do
     resources :categories, :slides, :tours, :bookings, :coupons
     resources :tours do

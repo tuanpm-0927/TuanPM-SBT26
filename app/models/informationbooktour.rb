@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class Informationbooktour < ApplicationRecord
-  has_one :booking
+  acts_as_paranoid
+
+  has_one :booking, dependent: :destroy
 end

@@ -1,11 +1,19 @@
 <% provide :title, t(".tour_title") %>
 <h1><%= t(".tour_title") %></h1>
 <%= link_to t(".create"), new_admin_tour_path, {class: "btn btn-primary"} %>
+<br>
+
+<div class="form-search">
+  <%= search_form_for(@q, url: admin_tours_path) do |f| %>
+    <%= f.search_field :tour_cont, class: "form-control" %>
+    <%= f.submit t(".search"), class: "btn btn-search" %>
+  <% end %>
+</div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= t(".title") %></th>
+      <th><%= sort_link(@q, :title, t(".title"), default_order: :asc) %></th>
       <th><%= t(".category_name") %></th>
       <th><%= t(".address_source") %></th>
       <th><%= t(".price") %></th>
@@ -18,7 +26,15 @@
     </tr>
   </thead>
   <tbody id="tour_body">
-    <%= render @tours %>
+    <% if @tours.empty? %>
+      <tr>
+        <td>
+          <%= t(".empty") %>
+        </td>
+      </tr>
+    <% else %>
+      <%= render @tours %>
+    <% end  %>
   </tbody>
 </table>
 <div id="paginate_tour">

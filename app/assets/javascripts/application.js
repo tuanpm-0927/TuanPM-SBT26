@@ -19,3 +19,7 @@
 //= require ckeditor/config
 //= require bootstrap-wysihtml5
 //= require wysihtml5
+//= require Chart.min
+//= require social-share-button
+//= require chat
+//= require rating

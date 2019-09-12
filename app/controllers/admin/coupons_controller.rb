@@ -1,15 +1,14 @@
 class Admin::CouponsController < ApplicationController
+  authorize_resource
+  
   before_action :load_coupon, except: [:index, :create, :new]
 
   def index
     @coupons = Coupon.paginate(page: params[:page], per_page:  Settings.def_perpage)
-    authorize @coupons
   end
 
   def create 
-    @coupon = Coupon.new coupon_params
-    authorize @coupon
-    if @coupon.save
+    if Coupon.create coupon_params
       @check_create = true
       load_coupons
     else
@@ -22,21 +21,18 @@ class Admin::CouponsController < ApplicationController
 
   def new
     @coupon = Coupon.new
-    authorize @coupon
     respond_to do |format|
       format.js
     end
   end
 
   def edit
-    authorize @coupon
     respond_to do |format|
       format.js
     end
   end
 
   def update
-    authorize @coupon
     if @check_update = @coupon.update_attributes(coupon_params)
       flash[:success] = t ".slide_update_success"
     end
@@ -46,7 +42,6 @@ class Admin::CouponsController < ApplicationController
   end
 
   def destroy
-    authorize @coupon
     if @coupon.destroy
       flash[:success] = t ".delete_success"
       redirect_to admin_coupons_path
@@ -69,5 +64,4 @@ class Admin::CouponsController < ApplicationController
   def load_coupons
     @coupons = Coupon.paginate(page: Settings.def_page, per_page: Settings.def_perpage)
   end
-
 end

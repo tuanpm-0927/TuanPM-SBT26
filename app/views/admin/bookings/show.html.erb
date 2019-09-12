@@ -1,0 +1,28 @@
+<% provide :title, t(".booking_title") %>
+<h1><%= t(".booking_title") %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t(".fullname") %></th>
+      <th><%= t(".phone_number") %></th>
+      <th><%= t(".address") %></th>
+      <th><%= t(".note") %></th>
+      <th><%= t(".name_tour") %></th>
+      <th><%= t(".start_day") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @bookings.empty? %>
+      <tr>
+        <td>
+          <%= t(".empty") %>
+        </td>
+      </tr>
+    <% else %>
+      <%= render @bookings %>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= will_paginate %>
+</div>

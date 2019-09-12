@@ -12,6 +12,8 @@
       </div>
       <div class="col-sm-6">
         <%= @tour_detail_current.day_start %>
+        <%= social_share_button_tag(t(".share_on_facebook"), url: tour_booking_url(@tour, tour_detail_id: @tour_detail_current.id),
+          desc: @tour.title, class: "btn btn-facebook btn-lg") %>
         <%= link_to t(".select_day"), tour_path(id: @tour.id), class: "btn btn-primary" %>
         <% if current_user %>
           <%= link_to t(".booking"), booking_path(id: @tour.id, tour_detail_id: @tour_detail_current.id), class: "btn btn-danger" %>
@@ -41,7 +43,7 @@
         <%= t(".price") %>
       </div>
       <div class="col-sm-3">
-        <%= @tour.price %>
+        <%= number_to_currency(@tour.price) %>
       </div>
     </div>
   
@@ -51,15 +53,15 @@
         <%= t(".total_booking") %>
       </div>
       <div class="col-sm-3">
-        <%= @tour.price_discount %>
+        <%= number_to_currency(@tour.price_discount) %>
         <p><span><%= @tour_detail_current.total_current_booking %></span>/<span class="color-red"><%= @tour_detail_current.total_booking %></span></p>
       </div>
     </div>
   </div>
 </div>
-  
 <div class="row container-fluid">
   <h3 class="text-center"><%= t(".tour_guide") %></h3>
   <%= @tour.content.html_safe %>
 </div>
-  
+<%= render "shared/comments_plugin" %>
+<div class="fb-comments" data-href="https://localhost:3000/" data-width="" data-numposts=""></div>

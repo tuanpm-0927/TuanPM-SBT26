@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
+  acts_as_paranoid
+  
   enum type_post: { admin: 0, user: 1 }
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: Settings.length_max_category_name }
   mount_uploader :image, ImageUploader
   scope :order_by_newest, -> { order(created_at: :desc) }
-  scope :load_categories_admin, -> { where(type_post: :Admin) }
-  scope :category_tour, -> { where(type_post: :Admin)}
-  scope :category_post, -> { where(type_post: :User)}
 
   has_many :tours, dependent: :destroy 
-  # Ex:- scope :active, -> {where(:active => true)}
 end

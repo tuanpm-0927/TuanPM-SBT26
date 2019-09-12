@@ -1,6 +1,7 @@
 <h3 class="post-title text-center"><%= @post.title %></h3>
 <br>
 <p class="text-right"><%= @post.created_at %></p>
+<%= social_share_button_tag(t(".share_on_facebook"), url: post_path(@post)) %>
 <br>
 <p><%= @post.content.html_safe %></p>
 

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+require "chatwork"
 
 module ApplicationHelper
   include SessionHelper

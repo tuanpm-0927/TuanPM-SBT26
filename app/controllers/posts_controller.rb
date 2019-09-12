@@ -4,7 +4,12 @@ class PostsController < ApplicationController
   before_action :check_user_post, only: :destroy
 
   def index
-    @posts = current_user.posts.order_by_newest.paginate page: params[:page], per_page: Settings.per_page
+    @q = Post.ransack(params[:q]) 
+    if params[:q].nil?
+      @posts = current_user.posts.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
+    else
+      @posts = @q.result(distinct: true).where(user_id: current_user.id).paginate page: params[:page], per_page: Settings.def_perpage
+    end
   end
 
   def new
@@ -65,7 +70,7 @@ class PostsController < ApplicationController
   end
 
   def load_post
-    @post = Post.find_by(params[:id])
+    @post = Post.find_by(id: params[:id])
     return if @post
     flash[:danger] = t ".post_notfound"
     redirect_to notfound_path

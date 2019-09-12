@@ -21,8 +21,16 @@ width: "150"
 height_minium: "150"
 width_minium: "250"
 row_note: 3
-minimun: 1
+minimun: 0
 limit: 15
 col_default: 70
 length_max_name: 100
 length_min_pass: 6
+length_max_category_name: 40
+length_max_address: 50
+age_valid: 17
+length_max_phonenumber: 20
+length_name_slide: 30
+length_max_slidename: 20
+format_day: "%m-%Y"
+format_datetime: "%Y-%m-%d %H:%M:%S"

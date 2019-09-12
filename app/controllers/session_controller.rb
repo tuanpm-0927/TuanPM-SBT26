@@ -15,6 +15,7 @@ class SessionController < ApplicationController
   end
 
   def destroy
+    byebug
     log_out if logged_in?
     redirect_to root_path unless logged_in?
   end

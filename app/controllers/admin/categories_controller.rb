@@ -1,17 +1,20 @@
-# frozen_string_literal: true
-
 class Admin::CategoriesController < ApplicationController
+  authorize_resource
+
   before_action :load_category, except: [:index, :new, :create]
   before_action :load_categories, only: [:create]
 
   def index
-    @categories = Category.order_by_newest.paginate(page: params[:page], per_page: Settings.def_perpage)
-    authorize @categories
+    @q = Category.ransack(params[:q])  
+    @categories = if params[:q].nil?
+      Category
+    else
+      @categories = @q.result(distinct: true)
+    end.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
   end
 
   def new
     @category = Category.new
-    authorize @category
     respond_to do |format|
       format.js
     end
@@ -19,26 +22,21 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new category_params
-    authorize @category
     @category.save
     respond_to do |format|
       format.js
     end
   end
 
-  def show
-    authorize @category
-  end
+  def show; end
 
   def edit
-    authorize @category
     respond_to do |format|
       format.js
     end
   end
 
   def update
-    authorize @category
     if @check_update = @category.update_attributes(category_params)
       flash[:success] = t ".category_update_success"
     end
@@ -48,10 +46,14 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    authorize @category
     if @category.tours.length > 0 and check_tour_booked?@category.tours
       flash[:danger] = t ".have_booking_tour_of_category"
-    elsif @category.destroy
+      if @category.destroy
+        flash[:success] = t ".delete_success"
+      else
+        flash[:danger] = t ".delete_failed"
+      end
+    elsif @category.really_destroy!
       flash[:success] = t ".delete_success"
     else
       flash[:danger] = t ".delete_failed"

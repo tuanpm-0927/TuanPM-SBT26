@@ -1,0 +1,7 @@
+<h1><%= t(".title") %></h1>
+
+<p><%= t(".hi", name: @user.fullname) %>,</p>
+<p><%= t(".welcome") %></p>
+<p><%= t(".confirm_payment_click_bellow") %></p>
+<%= link_to t(".confirm_payment"), edit_payment_url(id: @payment.payment_code,
+  payment_id: @payment.id ) %>

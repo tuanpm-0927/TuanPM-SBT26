@@ -1,52 +1,53 @@
 class Admin::ToursController < ApplicationController
+  authorize_resource
+  
   before_action :load_tour, only: [:edit, :update, :destroy,:show]
   before_action :check_booking_tour, only: :destroy
 
   def index
-    @tours = Tour.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
-    authorize @tours
+    @q = Tour.ransack(params[:q]) 
+    if params[:q].nil?
+      @tours = Tour.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
+    else
+      @tours = @q.result(distinct: true).paginate page: params[:page], per_page: Settings.def_perpage
+    end
   end
 
   def listtour
-    authorize @tour
     @tour_details = @tour.tourdetails
   end
 
   def new
     @tour = Tour.new
-    authorize @tour
     @image = @tour.images.build
   end
   
   def create
     @tour = Tour.new params_tour
-    authorize @tour
     if @tour.save
       params[:images][:image_link].each do |image|
         @image_attachment = @tour.images.create!(image_link: image, tour_id: @tour.id)
       end
       redirect_to admin_tours_path
     else
+      flash[:danger] = t ".create_tour_failed"
       render :new
     end
   end
   
   def update
-    authorize @tour
     if @tour.update_attributes(params_tour)
       flash[:success] = t ".update_success"
       redirect_to admin_tours_path
     else
+      flash[:danger] = t ".update_tour_failed"
       render :edit
     end
   end
 
-  def edit
-    authorize @tour
-  end
+  def edit; end
 
   def destroy
-    authorize @tour
     check_booking_tour
     if @tour.destroy
       flash[:success] = t ".delete_success"

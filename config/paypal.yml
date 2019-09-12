@@ -1,0 +1,5 @@
+development: &sandbox
+   username: <%= ENV["USERNAME"] %>
+   password: <%= ENV["PASSWORD"] %>
+   signature: <%= ENV["SIGNATURE"] %>
+   sandbox: true
