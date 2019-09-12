@@ -24,3 +24,5 @@ row_note: 3
 minimun: 1
 limit: 15
 col_default: 70
+length_max_name: 100
+length_min_pass: 6
