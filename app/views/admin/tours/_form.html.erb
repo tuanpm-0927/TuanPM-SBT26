@@ -30,7 +30,7 @@
    <% end %>  
 
   <%= f.label t(".content") %>
-  <%= f.cktext_area :content, rows: Settings.row_default, ckeditor: {toolbar: 'Full'} %> 
+  <%= f.text_area :content, rows: Settings.row_default, cols: Settings.col_default, class: "wysihtml5" %> 
 
   <%= f.label t(".category") %>
   <%= f.select :category_id, options_for_select(load_categories, @tour.category_id), {}, { class: "form-control", required: true } %>

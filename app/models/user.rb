@@ -69,12 +69,10 @@ class User < ApplicationRecord
   private 
 
   def downcase_email
-    byebug
     email.downcase!
   end
 
   def create_activation_digest
-    byebug
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
   end

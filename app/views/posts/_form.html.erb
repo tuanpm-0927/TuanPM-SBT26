@@ -5,7 +5,7 @@
   <%= f.text_field :title, class: "form-control", required: true %>
 
   <%= f.label t(".content") %>
-  <%= f.text_area :content, class: "ckeditor", required: true %> 
+  <%= f.text_area :content, rows: Settings.row_default, cols: Settings.col_default, class: "wysihtml5"  %> 
 
   <%= f.label t(".category") %>
   <%= f.select :category_id, options_for_select(load_categories_user, @post.category_id), {}, { :class => "form-control", :required => true } %>
