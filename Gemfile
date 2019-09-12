@@ -26,6 +26,7 @@ gem "will_paginate", "~> 3.1.7"
 gem "ckeditor", github: "galetahub/ckeditor"
 gem "chosen-rails"
 gem 'bootstrap-wysihtml5-rails'
+gem "sassc"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

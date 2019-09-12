@@ -18,7 +18,4 @@
 //= require chosen-jquery
 //= require ckeditor/config
 //= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales
-//= require bootstrap-wysihtml5/locales/de-DE
-//= require bootstrap-wysihtml5/locales/es-ES
 //= require wysihtml5
