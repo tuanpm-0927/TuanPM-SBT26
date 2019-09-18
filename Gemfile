@@ -9,7 +9,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate", "~> 1.0.0"
-gem "carrierwave", "1.2.2"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "i18n-js"
@@ -31,6 +31,10 @@ gem "will_paginate", "~> 3.1.7"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "rspec-rails", "~> 3.7"
+  gem "rails-controller-testing"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
@@ -38,12 +42,16 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "mysql2"
 end
 
 group :test do
   gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+  gem "launchy"
+  gem "shoulda-matchers", "~> 3.0", require: false
+  gem "database_cleaner", "~> 1.5"
 end
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
