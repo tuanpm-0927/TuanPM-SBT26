@@ -1,0 +1,36 @@
+<% provide :title, t(".booking_title") %>
+<h1><%= t(".booking_title") %></h1>
+
+<div class="form-search">
+  <%= search_form_for(@q, url: admin_bookings_path) do |f| %>
+    <%= f.search_field :booking_cont, class: "form-control" %>
+    <%= f.submit t(".search"), class: "btn btn-search" %>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :fullname, t(".fullname"), default_order: :asc) %></th>
+      <th><%= t(".phone_number") %></th>
+      <th><%= t(".address") %></th>
+      <th><%= t(".note") %></th>
+      <th><%= t(".name_tour") %></th>
+      <th><%= t(".start_day") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @bookings.empty? %>
+    <tr>
+      <td>
+        <%= t(".empty") %>
+      </td>
+    </tr>
+    <% else %>
+      <%= render @bookings %>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= will_paginate %>
+</div>

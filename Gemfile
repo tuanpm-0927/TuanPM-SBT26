@@ -28,6 +28,9 @@ gem "turbolinks", "~> 5"
 gem "cancancan"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "~> 3.1.7"
+gem "chartjs-ror"
+gem "groupdate"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]

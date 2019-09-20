@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_082939) do
+ActiveRecord::Schema.define(version: 2019_09_17_080855) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(version: 2019_09_09_082939) do
     t.integer "user_id"
     t.integer "tourdetail_id"
     t.integer "informationbooktour_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_money", default: 0
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,21 +59,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_082939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-  end
-
-  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "data_file_name", null: false
-    t.string "data_content_type"
-    t.integer "data_file_size"
-    t.integer "assetable_id"
-    t.string "assetable_type", limit: 30
-    t.string "type", limit: 30
-    t.integer "width"
-    t.integer "height"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "commentposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +75,15 @@ ActiveRecord::Schema.define(version: 2019_09_09_082939) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "coupon"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "value", default: 0
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -200,6 +195,9 @@ ActiveRecord::Schema.define(version: 2019_09_09_082939) do
     t.string "password_confirmation"
     t.string "password_digest"
     t.integer "money", default: 0
+    t.string "reset_digest"
+    t.string "activation_digest"
+    t.boolean "activated"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

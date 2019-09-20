@@ -6,7 +6,14 @@ class Admin::CategoriesController < ApplicationController
   before_action :load_categories, only: [:create]
 
   def index
-    @categories = Category.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
+    @q = Category.ransack(params[:q]) 
+    @categories = if params[:q].nil?
+      Category
+    else
+      @categories = @q.result(distinct: true).
+    end.order_by_newest.paginate page: params[:page], per_page: Settings.def_perpage
+
+    authorize @categories
   end
 
   def new

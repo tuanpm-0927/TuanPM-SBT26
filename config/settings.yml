@@ -13,3 +13,6 @@ type_post: ["admin", "user"]
 val_day_default: 1
 val_default: 0
 column_content: 3
+length_max_address: 20
+length_max_name: 30
+length_max_phonenumber: 20

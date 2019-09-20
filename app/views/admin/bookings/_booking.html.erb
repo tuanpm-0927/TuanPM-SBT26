@@ -1,0 +1,8 @@
+<tr>
+  <td><%= booking.informationbooktour.fullname %></td>
+  <td><%= booking.informationbooktour.phonenumber %></td>
+  <td><%= booking.informationbooktour.address %></td>
+  <td><%= text_area_tag t(".note"), booking.informationbooktour.note, disabled: true, class: "form-control"%></td>
+  <td><%= booking.tourdetail.tour.title %></td>
+  <td><%= booking.tourdetail.day_start %></td>
+</tr>
