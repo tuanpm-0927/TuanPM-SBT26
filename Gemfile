@@ -31,6 +31,9 @@ gem "will_paginate", "~> 3.1.7"
 gem "chartjs-ror"
 gem "groupdate"
 gem "ransack"
+gem "devise"
+gem "figaro"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
