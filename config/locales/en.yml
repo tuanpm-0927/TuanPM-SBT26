@@ -111,3 +111,35 @@ en:
         rating_average: "Rating"
         action: "Action"
         tour_title: "Tours"
+ devise:
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        btn_confirm: "Confirm"
+    sessions:
+      form:
+        login: "Login"
+        email: "Email"
+        password: "Password"
+      new:
+        login_title: "Login"
+        login: "Login"
+    registrations:
+      new:
+        sign_up: "Sign up"
+        email: "Email"
+        full_name: "Fullname"
+        phone_number: "Phone number"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+    passwords:
+      new:
+        forgot_password: "Forgot Password"
+        send_me_forgot_password: "Send me forgot password"
+        email: "Email"
+    confirmations:
+      new: 
+        confirmation: "Confirmation"
+      form:
+        resend_code: "Resend Code"
+        email: "Email"

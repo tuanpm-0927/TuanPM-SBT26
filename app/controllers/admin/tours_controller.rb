@@ -1,4 +1,6 @@
 class Admin::ToursController < ApplicationController
+  authorize_resource
+  
   before_action :load_tour, only: [:edit, :update, :destroy,:show]
   before_action :check_booking_tour, only: :destroy
 

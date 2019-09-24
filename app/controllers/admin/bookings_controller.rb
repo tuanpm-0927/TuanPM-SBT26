@@ -1,4 +1,6 @@
 class Admin::BookingsController < ApplicationController
+  authorize_resource
+  
   before_action :load_booking, only: :show
 
   def index

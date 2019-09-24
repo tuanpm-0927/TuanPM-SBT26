@@ -1,0 +1,59 @@
+<div>
+  <h3 class="text-center"><%= t(".booking_manager") %></h3>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= t(".manager_category") %></h5>
+        <%= link_to t(".manager_category"), admin_categories_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= t(".manager_slide") %></h5>
+        <%= link_to t(".manager_slide"), admin_slides_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= t(".manager_tour") %></h5>
+        <%= link_to t(".manager_tour"), admin_tours_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= t(".manager_coupon") %></h5>
+          <%= link_to t(".manager_coupon"), admin_coupons_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= t(".manager_user") %></h5>
+        <%= link_to t(".manager_user"), users_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= t(".manager_booking") %></h5>
+          <%= link_to t(".manager_booking"), admin_bookings_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <%= line_chart @data, @options %>
+</div>

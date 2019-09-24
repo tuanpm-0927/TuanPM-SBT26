@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  authorize_resource
+  
   before_action :load_user, only: %i[show destroy]
   before_action :correct_user, only: :destroy
 

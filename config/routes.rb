@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/notfound", to: "static_pages#notfound"
 
-  resources :users, except: %i[new]
+  resources :users, only: :show
   resources :posts
   resources :comments, only: [:create, :destroy]
 

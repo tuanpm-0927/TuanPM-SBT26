@@ -16,3 +16,4 @@ column_content: 3
 length_max_address: 20
 length_max_name: 30
 length_max_phonenumber: 20
+admin: "Admin"

@@ -1,4 +1,6 @@
 class Admin::SlidesController < ApplicationController
+  authorize_resource
+  
   before_action :load_slide, except: [:index, :create, :new]
 
   def index
